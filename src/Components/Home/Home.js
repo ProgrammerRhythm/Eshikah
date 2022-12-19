@@ -14,6 +14,7 @@ const Home = () => {
         <div className="home">
             <Front></Front>
             <Services></Services>
+            <PClass></PClass>
         </div>
     );
 };
@@ -76,15 +77,15 @@ function Header(){
                 </div>
                 <div className="row CoverUp HideIt">
                 <div className="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-row Himg">
-                  <img src={Sicon} style={{margin: '0px 3px'}} alt="" />
+                  <img src={Sicon} style={{margin: '0px 5px'}} alt="" />
                   <p>Public Speaking</p>
                 </div>
                 <div className="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-row Himg">
-                    <img src={Bicon} alt=""  />
+                    <img style={{margin: '0px 5px'}} src={Bicon} alt=""  />
                     <p>Career Oriented</p>
                 </div>
                 <div className="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-row Himg" >
-                    <img src={Cicon} alt="" style={{margin: '0px 3px'}} />
+                    <img src={Cicon} alt="" style={{margin: '0px 5px'}} />
                     <p>Creative Work</p>
                 </div>
                 </div>
@@ -124,6 +125,19 @@ function Swipe(props){
     </div>
   )
 }
+
+function PClass(){
+  return(
+    <div className='container'>
+      <h5 style={{color: '#6941C6',fontWeight:'600',fontSize:'18px',marginTop:'30px'}}>Explore Programs </h5>
+      <h1 className='ClassT' style={{color: '#101828',}}>Our Most Popular Class</h1>
+      <p className='smt'>Let's join our famous class, the knowledge provided will definitely be useful for you.</p>
+    </div>
+  )
+}
+
+
+
 
 
 export default Home;

@@ -71,7 +71,7 @@ li{
 }
 .service{
     text-align: center;
-    height: 50vh;
+    /* height: 50vh; */
 }
 .serviceT{
     font-family: Inter;
@@ -80,6 +80,13 @@ li{
     line-height: 44px;
     letter-spacing: -0.02em;
     text-align: center;
+}
+.ClassT{
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: -0.02em;
 }
 .swiper {
     width: 100%;
