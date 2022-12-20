@@ -6,6 +6,7 @@ import Sicon from '../../Img/Icon/Speak.png'
 import Bicon from '../../Img/Icon/Vector.png'
 import Cicon from '../../Img/Icon/Layer 2.png'
 import Data from '../Data/Data';
+import YtClass from '../Data/PVClassData';
 
 // import "./styles.css";
 
@@ -128,10 +129,27 @@ function Swipe(props){
 
 function PClass(){
   return(
-    <div className='container'>
+    <div className='container PClass'>
       <h5 style={{color: '#6941C6',fontWeight:'600',fontSize:'18px',marginTop:'30px'}}>Explore Programs </h5>
       <h1 className='ClassT' style={{color: '#101828',}}>Our Most Popular Class</h1>
       <p className='smt'>Let's join our famous class, the knowledge provided will definitely be useful for you.</p>
+      <div className="row">
+      {
+        YtClass.map(data => <YtRow url={data.Link} name={data.name} description={data.description}></YtRow>)
+      }
+      </div>
+    </div>
+  )
+}
+
+function YtRow(props){
+  return(
+    <div className="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+      <div className="YTRCard">
+      <iframe className='Classbox' src={props.url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <h4 className="CH">{props.name}</h4>
+      <p className='cD'>{props.description}</p>
+      </div>
     </div>
   )
 }
