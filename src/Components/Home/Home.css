@@ -43,6 +43,37 @@
     border-radius: 10px;
     box-shadow: inset 0 0 0 0 #7F56D9;
 }
+.Footer{
+    margin-top: 50px;
+    height: 35vh;
+    background-color: #101828;
+    padding: 30px 60px;
+    /* text-align: center; */
+}
+p{
+    color: rgba(234, 236, 240, 1);;
+}
+.gap{
+    margin-top: 15px;
+    background-color: #101828;
+}
+.rew{
+    background-color: #101828;
+}
+.fHead{
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(152, 162, 179, 1)!important;
+    margin-bottom: 10px;
+}
+.common{
+    background-color: #101828;
+    color: white;
+}
 li{
     padding-left: 8px;
     font-weight: 420;
@@ -178,13 +209,16 @@ li{
     background-color: #7F56D9;
 }
 .Classbox{
-    width: 22rem;
-    height: 255px;
+    width: 100%;
+        height: 235px;
     /* margin: 20px 0px; */
     box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
     border: 1px solid #fff;
     /* padding: 35px; */
     border-radius: 12px;
+}
+.Cheading{
+    margin: 45px 0px 30px 0px;
 }
 @media screen and (max-width: 1399px) {
     .Cbox{
@@ -198,8 +232,8 @@ li{
 
     }
     .Classbox{
-        width: 22rem;
-        height: 255px;
+        width: 100%;
+        height: 235px;
         /* margin: 20px 0px; */
         box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
         border: 1px solid #fff;
@@ -232,7 +266,7 @@ li{
 
     }
     .Classbox{
-        width: 20rem;
+        width: 100%;
         height: 235px;
         /* margin: 20px 0px; */
         box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
@@ -253,8 +287,8 @@ li{
         border-radius: 12px;
     }
     .Classbox{
-        width: 17rem;
-        height: 253px;
+        width: 100%;
+        height: 235px;
         /* margin: 20px 24px; */
         box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
         border: 1px solid #fff;
@@ -280,7 +314,7 @@ li{
         border-radius: 12px;
     }
     .Classbox{
-        width: 18rem;
+        width: 100%;
         height: 235px;
         /* margin: 20px 24px; */
         box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
@@ -290,6 +324,13 @@ li{
     }
     .PClass{
         text-align: center;
+    }
+    .Footer{
+        margin-top: 50px;
+        height: auto;
+        background-color: #101828;
+        padding: 30px 60px;
+        /* text-align: center; */
     }
   }  
   @media screen and (max-width: 767px) {
@@ -303,7 +344,7 @@ li{
         border-radius: 12px;
     }
     .Classbox{
-        width: 18rem;
+        width: 100%;
         height: 235px;
         /* margin: 18px auto; */
         /* box-shadow: 0 4px 20px rgba(0,0,0,.1)!important; */
