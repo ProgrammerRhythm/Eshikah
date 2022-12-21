@@ -12,28 +12,28 @@ const Footer = () => {
                     </div>
                     <div className="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
                       <div className="row rew">
-                      <div className="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 gap">
+                      <div className="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-3 gap">
                         <h5 className="common fHead">Product</h5>
                         <p className="common">Overview</p>
                         <p className="common">Features</p>
                         <p className="common">Solutions</p>
                         <p className="common">Tutorials</p>
                     </div>
-                    <div className="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 gap">
+                    <div className="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-3 gap">
                     <h5 className="common fHead">Company</h5>
                         <p className="common">About Us</p>
                         <p className="common">Careers</p>
                         <p className="common">Policy</p>
                         <p className="common">NEWS</p>
                     </div>
-                    <div className="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 gap">
+                    <div className="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-3 gap">
                     <h5 className="common fHead">Social</h5>
                         <p className="common">Twitter</p>
                         <p className="common">Github</p>
                         <p className="common">Youtube</p>
                         <p className="common">Linkedin</p>
                     </div>
-                    <div className="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 gap">
+                    <div className="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 col-xxl-3 gap">
                     <h5 className="common fHead">Legal</h5>
                         <p className="common">Terms</p>
                         <p className="common">Privacy</p>

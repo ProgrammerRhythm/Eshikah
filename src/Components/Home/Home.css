@@ -298,11 +298,17 @@ li{
   }  
 
   @media screen and (max-width: 991px) {
+    .gap{
+        text-align: center;
+    }
     .Front{
         text-align: center;
     }
     .Hcol {
         margin: 10px 0px;
+    }
+    .fHead{
+        text-align: center;
     }
     .Cbox {
         width: 18rem;
@@ -334,6 +340,12 @@ li{
     }
   }  
   @media screen and (max-width: 767px) {
+    .gap{
+        text-align: left;
+    }
+    .fHead{
+        text-align: left;
+    }
     .Cbox {
         width: 18rem;
         height: 235px;
