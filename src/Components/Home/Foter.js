@@ -44,7 +44,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-              <p style={{textAlign: 'center',marginTop: '40px'}} className='common'>© 2022 Ed-Circle. All rights reserved.</p>
+              <p style={{textAlign: 'center',marginTop: '25px'}} className='common'>© 2022 Skill-Up All rights reserved.</p>
         </div>
     );
   };
