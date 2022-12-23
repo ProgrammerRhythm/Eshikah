@@ -4,6 +4,10 @@ import SignUpIng from '../../../Img/login.webp'
 import './SignUp.css'
 import Footer from '../../Home/Foter';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+
+const notify = () => toast('Here is your toast.');
+
 const SignUp = () => {
     return (
         <div>
@@ -32,10 +36,10 @@ function SignUpComponent(){
                     <input type="email" placeholder="Email" required /> <br />
                     <input type="password" placeholder="Password" required id="" /> <br />
                     <input type="password" placeholder="Confirm Password" required id="" /> <br />
-                    <button style={{padding: '10px 30px',borderRadius: '30px'}} className='buttons'>Sign Up</button>
+                    <button onClick={notify} style={{padding: '10px 30px',borderRadius: '30px'}} className='buttons'>Sign Up</button>
                 </form>
                 <hr />
-                 <Link className='link' to="/signin"><button className='buttons' style={{padding: '10px 30px',borderRadius: '30px'}}>Sign In</button></Link>
+                 <Link className='link' to="/signin"><button className='buttons' style={{padding: '10px 30px',borderRadius: '30px'}}>Already have an account?</button></Link>
             </div>
             <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 ImgBoxSignUp">
                 <img className="SignUpImg img-fluid" src={SignUpIng} alt="" />
