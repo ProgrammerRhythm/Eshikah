@@ -24,7 +24,7 @@ const SignUp = () => {
 function SignUpComponent(){
     const history = useNavigate()
     const handleSubmit = (e) => {
-        history('/dashboard')
+        history('/dashboard/info')
         e.preventDefault();
       }
     return (

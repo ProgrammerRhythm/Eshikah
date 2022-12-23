@@ -20,7 +20,7 @@ const Login = () => {
 function LoginComponent(){
     const history = useNavigate()
     const handleSubmit = (e) => {
-        history('/dashboard')
+        history('/dashboard/info')
         e.preventDefault();
       }
     return (
