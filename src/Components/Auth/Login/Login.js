@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from '../../Home/Navbar';
-import loginIng1 from '../../../Img/Login Picture/LogIn-1.png'
+// import loginIng1 from '../../../Img/Login Picture/LogIn-1.png'
 import loginIng2 from '../../../Img/Login Picture/Login-2.webp'
 import './Login.css'
 import Footer from '../../Home/Foter';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
     return (
         <div>
