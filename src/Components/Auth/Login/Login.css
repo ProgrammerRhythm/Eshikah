@@ -9,6 +9,16 @@
 /* .SBox{
     margin: 100px 0px;
 } */
+.Cimg{
+    height: 500px!important;
+}
+.Wlc{
+        font-family: Baloo Da\ 2;
+        font-size: 24px;
+        line-height: 1.5;
+        color: #354895;
+        font-weight: 600;
+}
 form input{
     width: 350px;
     padding: 8px 20px;
@@ -24,7 +34,15 @@ form input{
     margin: 5px 20px;
     font-weight: 500;
 }
+
 @media only screen and (max-width:991px) {
+    .LoginComponent{
+        height: 40vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
     form input{
         width: 250px;
         padding: 8px 20px;
@@ -40,6 +58,9 @@ form input{
         width: auto;
         margin: 5px 20px;
         font-weight: 600;
+    }
+    .Footer{
+        position: static;
     }
 }
 @media screen and (max-width: 991px) {

@@ -13,19 +13,16 @@ function Navbar(){
           <div className="collapse navbar-collapse justify-content-end animate__animated animate__fadeInRight" id="navbarNav">
             <ul className="navbar-nav responsive">
               <li className="nav-item">
-                <Link className="nav-link text-dark active" aria-current="page" to="/Program">Program</Link>
+                <Link className="nav-link MarginT text-dark active" aria-current="page" to="/Program">Program</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-dark" to='/universities'>Universities</Link>
+                <Link className="nav-link MarginT text-dark" to='/universities'>Universities</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-dark" to="/Clubs">Clubs</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link text-dark" to="/signin">Sign in</Link>
+                <Link className="nav-link MarginT text-dark" to="/Clubs">Clubs</Link>
               </li>
               <li className="nav-item upBtn">
-              <Link to="/signup"><button className='button'>Create free account </button></Link>
+              <Link to="/signin"><button className='button'>Log in/Sign Up</button></Link>
               </li>
             </ul>
           </div>
