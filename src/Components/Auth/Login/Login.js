@@ -28,7 +28,7 @@ function LoginComponent() {
     }
     return (
         <div className="container LoginComponent">
-            <div className="row SBottom d-flex justify-content-center align-items-center">
+            <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
                     <form onSubmit={handleSubmit}>

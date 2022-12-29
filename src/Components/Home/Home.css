@@ -325,6 +325,10 @@ li{
   }  
 
   @media screen and (max-width: 991px) {
+    .serviceT{
+        font-size: 25px;
+        font-weight: 600;
+    }
     .gap{
         text-align: center;
     }
