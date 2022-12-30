@@ -12,6 +12,7 @@
     "bootstrap-icons": "^1.10.2",
     "formik": "^2.2.9",
     "iconsax-react": "^0.0.8",
+    "keen-slider": "^6.8.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",

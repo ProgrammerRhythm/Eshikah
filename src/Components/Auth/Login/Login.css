@@ -5,12 +5,17 @@
 .LoginComponent{
     /* height: 70vh; */
     text-align: center;
+    margin-top: 50px;
+    padding: 20px;
 }
 /* .SBox{
     margin: 100px 0px;
 } */
 .Cimg{
     height: 500px!important;
+}
+.manageH{
+    height: 400px!important;
 }
 .Wlc{
         font-family: Baloo Da\ 2;
