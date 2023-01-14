@@ -5,15 +5,18 @@ const notFoundHandler = (_req, _res, next) => {
 };
 
 const errorHandler = (error, _req, res, _next) => {
-  if (error.status) {
-    return res.status(error.status).json({
+  if (error.status === 500 || !error.status) {
+    // server error
+    console.log(error);
+    return res.status(500).json({
       success: false,
-      error: error.message,
+      error: "Something went wrong.",
     });
   }
-  res.status(500).json({
+
+  return res.status(error.status).json({
     success: false,
-    error: "Something went wrong.",
+    error: error.message,
   });
 };
 
