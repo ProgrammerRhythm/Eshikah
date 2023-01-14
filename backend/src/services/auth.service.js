@@ -10,9 +10,9 @@ const verifyToken = (token) => {
     return false;
   }
 };
-const generateLoginToken = async (email, information, expiresIn = "7 days") => {
+const generateLoginToken = (email, information, expiresIn = "7 days") => {
   const tokenCreatedAt = new Date().getTime();
-  const token = generateLoginToken(
+  const token = generateToken(
     { ...information, tokenCreatedAt, email },
     expiresIn
   );
@@ -22,21 +22,35 @@ const generateLoginToken = async (email, information, expiresIn = "7 days") => {
 const generateFirstTimeLogin = (email) => {
   return generateToken({ email, newUser: true }, "3 days");
 };
-const verifyLoginToken = async (token) => {
+const verifyLoginToken = (token) => {
+  let isValid = false,
+    decoded = {};
   try {
-    const decoded = verifyToken(token);
-    if (!decoded.email) return false;
-    // const user = await findUser("email", decoded.email);
-    // if (!user) return false;
+    decoded = verifyToken(token);
+    if (!decoded.email) {
+      isValid = false;
+    }
 
-    return true;
+    isValid = true;
   } catch (error) {
-    return false;
+    isValid = false;
+  } finally {
+    return {
+      ...decoded,
+      isValid,
+    };
   }
+};
+
+const verifySignupToken = (token) => {
+  const decoded = verifyLoginToken(token);
+  if (!decoded.newUser) return { ...decoded, isValid: false };
+  return { ...decoded };
 };
 
 module.exports = {
   generateFirstTimeLogin,
   verifyLoginToken,
   generateLoginToken,
+  verifySignupToken,
 };

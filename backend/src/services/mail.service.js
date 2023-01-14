@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 const sendMail = (to, details) => {
   return transporter.sendMail({
     ...details,
-    from: "'mail-bot' test@faketi.xyz",
+    from: "'Eshikha' test@faketi.xyz",
     to,
   });
 };
