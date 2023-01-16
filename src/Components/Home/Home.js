@@ -93,7 +93,7 @@ function RBlog(){
 function LoadBlog(props){
   return(
     <Link to={`/Blog`} style={{textDecoration:'none'}}>
-      <div className='BlogBox d-flex flex-row'>
+      <div className='BlogBox'>
     <div className="img">
         <img className='FBimg ' src={props.img} alt="" />
     </div>

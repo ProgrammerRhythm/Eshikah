@@ -240,6 +240,10 @@ li{
 .Cbox:hover .CBT{
     background-color: #7F56D9;
 }
+.BlogBox{
+    display: flex;
+    flex-direction: row;
+}
 .Classbox{
     width: 100%;
         height: 235px;
@@ -381,6 +385,11 @@ li{
     }
     .fHead{
         text-align: left;
+    }
+    .BlogBox{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
     .Cbox {
         width: 18rem;
