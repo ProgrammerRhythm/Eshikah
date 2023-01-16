@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Login from './Components/Auth/Login/Login';
 import SignUp from './Components/Auth/SignUp/SignUp';
+import BlogBody from './Components/Blog/BlogBody';
 import Activity from './Components/DashBoard/Activity/Activity';
 import Clubs from './Components/DashBoard/Clubs/Clubs';
 import Info from './Components/DashBoard/Info/Info';
@@ -20,6 +21,7 @@ function App() {
           <Route path="/dashboard/info" element={<Info />} />
           <Route path="/dashboard/clubs" element={<Clubs />} />
           <Route path="/dashboard/activity" element={<Activity />} />
+          <Route path='/blog/:id' element={<BlogBody />} />
           <Route path="*" element={<NotFound />}/>
         </Routes>
   );

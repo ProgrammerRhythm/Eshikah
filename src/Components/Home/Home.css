@@ -113,6 +113,11 @@ li{
     /* text-align: left; */
     /* position: relative; */
 }
+.FBimg{
+    height: 150px;
+    width: 250px;
+    margin: 12px;
+}
 .smt{
     color: rgba(100, 100, 100, 1);
     /* position: relative; */
