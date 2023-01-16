@@ -64,7 +64,7 @@ function RBlog(){
     <div className='row'>
         {/* <div data-aos="fade-up"> */}
           {
-            Blogs.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id}></LoadBlog>)
+            Blogs.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id} By={data.By}></LoadBlog>)
           }
         {/* </div> */}
         {/* <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-left">
@@ -92,8 +92,15 @@ function RBlog(){
 
 
 function LoadBlog(props){
+  useEffect(() => {
+    AOS.init({
+        offset: 100,
+        duration: 1000,
+        easing: 'ease'
+    });
+})
   return(
-    <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+    <div data-aos="fade-up" className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6">
       <Link to={`/Blog/${props.id}`} style={{textDecoration:'none'}}>
       <div className='BlogBox'>
     <div className="img">
@@ -103,7 +110,7 @@ function LoadBlog(props){
      <p style={{color:'rgba(105, 65, 198, 1)',fontSize:'14px',fontWeight:'500',margin:'9px 0px'}}>{props.date}</p>
           <h5 style={{color:'rgba(16, 24, 40, 1)',fontSize:'17px',fontWeight:'600'}}>{props.title}</h5>
          <p style={{color:'rgba(102, 112, 133, 1)',fontSize:'15px',fontWeight:'400'}}>{props.content}</p>
-         {/* <p>{props.about}</p> */}
+         <p style={{color:'#949494'}}>by <span style={{color:"#dc3545"}}>{props.By}</span></p>
       </div>    
   </div>
   </Link>
