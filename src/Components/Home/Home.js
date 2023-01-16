@@ -11,10 +11,11 @@ import Navbar from './Navbar';
 import AOS  from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
-import Blog1 from '../Data/Blog/Blog1';
-import Blog2 from '../Data/Blog/Blog2';
-import Blog3 from '../Data/Blog/Blog3';
-import Blog4 from '../Data/Blog/Blog4';
+// import Blog1 from '../Data/Blog/Blog1';
+// import Blog2 from '../Data/Blog/Blog2';
+// import Blog3 from '../Data/Blog/Blog3';
+// import Blog4 from '../Data/Blog/Blog4';
+import Blogs from '../Data/Blog/Blogs';
 // import "./styles.css";
 
 
@@ -61,26 +62,26 @@ function RBlog(){
       <h1 style={{fontWeight:'600',fontSize:'28px',textAlign:'center',padding: '20px',margin: '20px auto'
 }}>Our recent blogs</h1>
     <div className='row'>
-        <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-left">
+        {/* <div data-aos="fade-up"> */}
           {
-            Blog1.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about}></LoadBlog>)
+            Blogs.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id}></LoadBlog>)
           }
-        </div>
-        <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-left">
+        {/* </div> */}
+        {/* <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-left">
           {
-            Blog2.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about}></LoadBlog>)
-          }
-        </div>
-        <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-right">
-          {
-            Blog3.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about}></LoadBlog>)
+            Blog2.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id}></LoadBlog>)
           }
         </div>
         <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-right">
           {
-            Blog4.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about}></LoadBlog>)
+            Blog3.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id}></LoadBlog>)
           }
         </div>
+        <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-right">
+          {
+            Blog4.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id}></LoadBlog>)
+          }
+        </div> */}
     </div>
     <div style={{textAlign:'center'}} className="upBtn">
     <button className='button'style={{padding: '10px 20px'}}>Load More</button>
@@ -92,7 +93,8 @@ function RBlog(){
 
 function LoadBlog(props){
   return(
-    <Link to={`/Blog`} style={{textDecoration:'none'}}>
+    <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+      <Link to={`/Blog/${props.id}`} style={{textDecoration:'none'}}>
       <div className='BlogBox'>
     <div className="img">
         <img className='FBimg ' src={props.img} alt="" />
@@ -105,6 +107,7 @@ function LoadBlog(props){
       </div>    
   </div>
   </Link>
+    </div>
   )
 }
 // function LoadBlogR(props){

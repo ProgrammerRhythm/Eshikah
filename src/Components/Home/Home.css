@@ -243,6 +243,7 @@ li{
 .BlogBox{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .Classbox{
     width: 100%;
