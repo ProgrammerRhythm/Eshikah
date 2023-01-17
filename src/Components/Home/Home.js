@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 // import Blog2 from '../Data/Blog/Blog2';
 // import Blog3 from '../Data/Blog/Blog3';
 // import Blog4 from '../Data/Blog/Blog4';
-import Blogs from '../Data/Blog/Blogs';
+import Blog from '../Data/Blog/Blogs';
 // import "./styles.css";
 
 
@@ -62,11 +62,9 @@ function RBlog(){
       <h1 style={{fontWeight:'600',fontSize:'28px',textAlign:'center',padding: '20px',margin: '20px auto'
 }}>Our recent blogs</h1>
     <div className='row'>
-        {/* <div data-aos="fade-up"> */}
           {
-            Blogs.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id} By={data.By}></LoadBlog>)
+            Blog.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id} By={data.By}></LoadBlog>)
           }
-        {/* </div> */}
         {/* <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-left">
           {
             Blog2.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id}></LoadBlog>)
@@ -84,7 +82,7 @@ function RBlog(){
         </div> */}
     </div>
     <div style={{textAlign:'center'}} className="upBtn">
-    <button className='button'style={{padding: '10px 20px'}}>Load More</button>
+    <Link to="/blog"><button className='button'style={{padding: '10px 20px'}}>Load More</button></Link>
     </div>
     </div>
   )
@@ -99,6 +97,10 @@ function LoadBlog(props){
         easing: 'ease'
     });
 })
+
+let content = props.content;
+content = content.slice(0, 80)
+
   return(
     <div data-aos="fade-up" className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6">
       <Link to={`/Blog/${props.id}`} style={{textDecoration:'none'}}>
@@ -109,7 +111,7 @@ function LoadBlog(props){
      <div className="Bcon">
      <p style={{color:'rgba(105, 65, 198, 1)',fontSize:'14px',fontWeight:'500',margin:'9px 0px'}}>{props.date}</p>
           <h5 style={{color:'rgba(16, 24, 40, 1)',fontSize:'17px',fontWeight:'600'}}>{props.title}</h5>
-         <p style={{color:'rgba(102, 112, 133, 1)',fontSize:'15px',fontWeight:'400'}}>{props.content}</p>
+         <p style={{color:'rgba(102, 112, 133, 1)',fontSize:'15px',fontWeight:'400'}}>{`${content}....`}</p>
          <p style={{color:'#949494'}}>by <span style={{color:"#dc3545"}}>{props.By}</span></p>
       </div>    
   </div>
