@@ -29,7 +29,7 @@ const Home = () => {
     })
     return (
         <div className="home">
-            <Front></Front>
+          <Front></Front>
             <Services></Services>
             <PClass></PClass>
             <RBlog></RBlog>
