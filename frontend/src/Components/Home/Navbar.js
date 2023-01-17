@@ -19,10 +19,13 @@ function Navbar(){
                 <Link className="nav-link MarginT text-dark" to='/universities'>Universities</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link MarginT text-dark" to='/blog'>Blog</Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link MarginT text-dark" to="/Clubs">Clubs</Link>
               </li>
               <li className="nav-item upBtn">
-              <Link to="/signin"><button className='button'>Log in/Sign Up</button></Link>
+              <Link to="/auth"><button className='button'>Log in/Sign Up</button></Link>
               </li>
             </ul>
           </div>

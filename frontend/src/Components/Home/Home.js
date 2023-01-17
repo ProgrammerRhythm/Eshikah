@@ -10,6 +10,12 @@ import Footer from './Foter';
 import Navbar from './Navbar';
 import AOS  from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
+// import Blog1 from '../Data/Blog/Blog1';
+// import Blog2 from '../Data/Blog/Blog2';
+// import Blog3 from '../Data/Blog/Blog3';
+// import Blog4 from '../Data/Blog/Blog4';
+import Blog from '../Data/Blog/Blogs';
 // import "./styles.css";
 
 
@@ -26,6 +32,7 @@ const Home = () => {
             <Front></Front>
             <Services></Services>
             <PClass></PClass>
+            <RBlog></RBlog>
             <Footer></Footer>
         </div>
     );
@@ -41,6 +48,88 @@ function Front(){
 }
 
 
+
+function RBlog(){
+  useEffect(() => {
+    AOS.init({
+        offset: 100,
+        duration: 1000,
+        easing: 'ease'
+    });
+})
+  return (
+    <div className="container">
+      <h1 style={{fontWeight:'600',fontSize:'28px',textAlign:'center',padding: '20px',margin: '20px auto'
+}}>Our recent blogs</h1>
+    <div className='row'>
+          {
+            Blog.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id} By={data.By}></LoadBlog>)
+          }
+        {/* <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-left">
+          {
+            Blog2.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id}></LoadBlog>)
+          }
+        </div>
+        <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-right">
+          {
+            Blog3.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id}></LoadBlog>)
+          }
+        </div>
+        <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-right">
+          {
+            Blog4.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id}></LoadBlog>)
+          }
+        </div> */}
+    </div>
+    <div style={{textAlign:'center'}} className="upBtn">
+    <Link to="/blog"><button className='button'style={{padding: '10px 20px'}}>Load More</button></Link>
+    </div>
+    </div>
+  )
+}
+
+
+function LoadBlog(props){
+  useEffect(() => {
+    AOS.init({
+        offset: 100,
+        duration: 1000,
+        easing: 'ease'
+    });
+})
+
+let content = props.content;
+content = content.slice(0, 80)
+
+  return(
+    <div data-aos="fade-up" className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 col-xxl-6">
+      <Link to={`/Blog/${props.id}`} style={{textDecoration:'none'}}>
+      <div className='BlogBox'>
+    <div className="img">
+        <img className='FBimg ' src={props.img} alt="" />
+    </div>
+     <div className="Bcon">
+     <p style={{color:'rgba(105, 65, 198, 1)',fontSize:'14px',fontWeight:'500',margin:'9px 0px'}}>{props.date}</p>
+          <h5 style={{color:'rgba(16, 24, 40, 1)',fontSize:'17px',fontWeight:'600'}}>{props.title}</h5>
+         <p style={{color:'rgba(102, 112, 133, 1)',fontSize:'15px',fontWeight:'400'}}>{`${content}....`}</p>
+         <p style={{color:'#949494'}}>by <span style={{color:"#dc3545"}}>{props.By}</span></p>
+      </div>    
+  </div>
+  </Link>
+    </div>
+  )
+}
+// function LoadBlogR(props){
+//   return(
+//     <div className='BlogBox'>
+//           <img className='FBimg ' src={props.img} alt="" />
+//        <p style={{color:'rgba(105, 65, 198, 1)',fontSize:'14px',fontWeight:'500',margin:'9px 0px'}}>{props.date}</p>
+//             <h5 style={{color:'rgba(16, 24, 40, 1)',fontSize:'17px',fontWeight:'600'}}>{props.title}</h5>
+//            <p style={{color:'rgba(102, 112, 133, 1)',fontSize:'15px',fontWeight:'400'}}>{props.content}</p>
+//            {/* <p>{props.about}</p> */}
+//         </div>
+//   )
+// }
 
 function Header(){
   useEffect(() => {

@@ -113,6 +113,11 @@ li{
     /* text-align: left; */
     /* position: relative; */
 }
+.FBimg{
+    height: 150px;
+    width: 250px;
+    margin: 12px;
+}
 .smt{
     color: rgba(100, 100, 100, 1);
     /* position: relative; */
@@ -234,6 +239,11 @@ li{
 }
 .Cbox:hover .CBT{
     background-color: #7F56D9;
+}
+.BlogBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .Classbox{
     width: 100%;
@@ -376,6 +386,11 @@ li{
     }
     .fHead{
         text-align: left;
+    }
+    .BlogBox{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
     .Cbox {
         width: 18rem;

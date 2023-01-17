@@ -1,0 +1,82 @@
+/* .LoginImg{
+    height: 440px;
+    margin-top: 80px;
+} */
+.LoginComponent{
+    /* height: 70vh; */
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+}
+/* .SBox{
+    margin: 100px 0px;
+} */
+.Cimg{
+    height: 500px!important;
+}
+.manageH{
+    height: 400px!important;
+}
+.Wlc{
+        font-family: Baloo Da\ 2;
+        font-size: 24px;
+        line-height: 1.5;
+        color: #354895;
+        font-weight: 600;
+}
+form input{
+    width: 350px;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 1px solid gray;
+    margin: 12px;
+}
+.SBottom{
+    margin-bottom: 40px;
+}
+.buttons{
+    width: 350px;
+    margin: 5px 20px;
+    font-weight: 500;
+}
+
+@media only screen and (max-width:991px) {
+    .LoginComponent{
+        height: 40vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    form input{
+        width: 250px;
+        padding: 8px 20px;
+        border-radius: 8px;
+        border: 1px solid gray;
+        margin: 12px;
+    }
+    hr{
+        width: auto;
+        margin-left: auto;
+    }
+    .buttons{
+        width: auto;
+        margin: 5px 20px;
+        font-weight: 600;
+    }
+    .Footer{
+        position: static;
+    }
+}
+@media screen and (max-width: 991px) {
+   .ImgBoxLogin{
+    display: none;
+   }
+  }  
+
+  /* @media screen and (max-width: 1400px) {
+    .LoginComponent{
+        height: 75vh;
+        text-align: center;
+    }
+   }     */

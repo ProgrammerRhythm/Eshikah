@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
-import Navbar from '../../Home/Navbar';
-import loginIng1 from '../../../Img/Login Picture/loginIng1.png'
-import loginIng2 from '../../../Img/Login Picture/loginimg2.png'
-import loginIng3 from '../../../Img/Login Picture/loginIng3.png'
+import Navbar from '../Home/Navbar';
+import loginIng1 from '../../Img/Login Picture/loginIng1.png'
+import loginIng2 from '../../Img/Login Picture/loginimg2.png'
+import loginIng3 from '../../Img/Login Picture/loginIng3.png'
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-// import './Login.css'
-import Footer from '../../Home/Foter';
+import './Auth.css'
+import Footer from '../Home/Foter';
 import { useNavigate } from 'react-router-dom';
 import AOS  from 'aos';
 import 'aos/dist/aos.css';
-const Login = () => {
+
+const Auth = () => {
     return (
         <div>
             <Navbar></Navbar>
@@ -19,11 +20,6 @@ const Login = () => {
         </div>
     );
 };
-
-
-
-
-
 
 function LoginComponent() {
     const history = useNavigate()
@@ -102,5 +98,4 @@ function LoginComponent() {
     )
 }
 
-
-export default Login;
+export default Auth;
