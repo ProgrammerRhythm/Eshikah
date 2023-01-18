@@ -24,9 +24,12 @@ const Auth = () => {
 function LoginComponent() {
     const history = useNavigate()
     const handleSubmit = (e) => {
-        history('/dashboard/info')
-        e.preventDefault();
+        // history('/dashboard/info')
+        // e.preventDefault();
+        console.log(e);
     }
+    
+
     const [sliderRef] = useKeenSlider(
         {
           loop: true,
