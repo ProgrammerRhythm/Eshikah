@@ -3,7 +3,8 @@ import logo from '../../Img/logo.png'
 
 function Navbar(){
     return (
-        <div style={{textAlign: 'center'}} className='container'>
+       <div>
+         <div style={{textAlign: 'center'}} className='container'>
         <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <Link className="navbar-brand animate__animated animate__fadeInLeft" to="/"><img style={{height: "70px"}} src={logo} alt="" /></Link>
@@ -32,6 +33,7 @@ function Navbar(){
         </div>
       </nav>
         </div>
+       </div>
     )
 }
 

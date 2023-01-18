@@ -29,7 +29,7 @@ const Home = () => {
     })
     return (
         <div className="home">
-          <Front></Front>
+            <Front></Front>
             <Services></Services>
             <PClass></PClass>
             <RBlog></RBlog>
@@ -40,9 +40,9 @@ const Home = () => {
 
 function Front(){
   return (
-    <div className='Front'>
-      <Navbar></Navbar>
-      <Header></Header>
+    <div className='Front container'>
+        <Navbar></Navbar>
+        <Header></Header>
     </div>
   )
 }
