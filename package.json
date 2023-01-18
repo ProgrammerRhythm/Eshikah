@@ -1,0 +1,21 @@
+{
+  "name": "eshikah",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .\\backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProgrammerRhythm/Eshikah.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProgrammerRhythm/Eshikah/issues"
+  },
+  "homepage": "https://github.com/ProgrammerRhythm/Eshikah#readme"
+}
