@@ -12,10 +12,11 @@
 }
 .leftPa{
     padding-left: 50px;
+    margin-top: 25px;
 }
 @media screen and (max-width: 991px) {
     .ProgramContent{
-        height: 60vh;
+        height: auto;
     }
     .ProgramContent{
         text-align: center;
