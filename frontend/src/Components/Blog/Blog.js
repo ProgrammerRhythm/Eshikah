@@ -9,8 +9,8 @@ import Footer from '../Home/Foter';
 const Blogs = () => {
     return (
         <div>
+            <Navbar></Navbar>
             <div className="Blog-content container">
-                <Navbar></Navbar>
                 <div style={{ marginBottom: '50px' }} className="Bheader row">
                     <div style={{ paddingLeft: '50px' }} className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                         <h1 style={{ paddingTop: '15%', fontSize: '45px', fontWeight: '700' }}>HEROES <span style={{ color: 'rgb(127, 86, 217)' }}> BLOG</span> </h1>

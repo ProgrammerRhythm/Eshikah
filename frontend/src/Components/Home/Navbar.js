@@ -14,7 +14,7 @@ function Navbar(){
           <div className="collapse navbar-collapse justify-content-end animate__animated animate__fadeInRight" id="navbarNav">
             <ul className="navbar-nav responsive">
               <li className="nav-item">
-                <Link className="nav-link MarginT text-dark active" aria-current="page" to="/Program">Program</Link>
+                <Link className="nav-link MarginT text-dark active" aria-current="page" to="/program">Program</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link MarginT text-dark" to='/universities'>Universities</Link>

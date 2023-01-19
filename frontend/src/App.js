@@ -10,6 +10,7 @@ import Info from './Components/DashBoard/Info/Info';
 import Profile from './Components/DashBoard/Profile/profile';
 import Home from './Components/Home/Home';
 import NotFound from './Components/NotFound/NotFound';
+import Program from './Components/Program/Program';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/auth" element={<Auth />} />
           <Route path='/blog/:id' element={<BlogBody />} />
           <Route path='/blog' element={<Blogs />} />
+          <Route path='/program' element={<Program/>} />
           <Route path="/dashboard/profile" element={<Profile />} />
           <Route path="/dashboard" element={<Info />} />
           <Route path="/dashboard/info" element={<Info />} />

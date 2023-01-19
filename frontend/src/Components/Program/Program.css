@@ -1,0 +1,33 @@
+.ProgramContent{
+    height: 55vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+.ProgramContent h1{
+    padding-top: 15%; 
+    font-size: 45px;
+    font-weight: 700;
+}
+.leftPa{
+    padding-left: 50px;
+}
+@media screen and (max-width: 991px) {
+    .ProgramContent{
+        height: 60vh;
+    }
+    .ProgramContent{
+        text-align: center;
+    }
+    
+} 
+@media screen and (max-width: 1199px) {
+    .ProgramContent h1{
+        font-size: 42px;
+
+    }
+    .leftPa{
+        padding-left: 30px;
+    }
+   } 
