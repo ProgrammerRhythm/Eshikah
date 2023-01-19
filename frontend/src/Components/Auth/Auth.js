@@ -74,7 +74,11 @@ function LoginComponent() {
     })
     const [user,setUser] = useState({
       isNew: true,
-      email: ''
+      email: '',
+      subData:{}
+    })
+    const [message,setMessage] = useState({
+      message: ''
     })
     const HandleChange = (e) => {
       let fildValid = true;
@@ -91,16 +95,33 @@ function LoginComponent() {
       const email = user.email;
       const totalValue = {
           "email": email,
-}
+      }
       console.log(totalValue);
       console.log(JSON.stringify(totalValue));
       SendData(totalValue);
+      }
+      function SendData(value) {
+        fetch('https://eshikah.lazytanzil.repl.co/api/auth/login',{
+        method: 'POST',
+        body: JSON.stringify(value),
+        headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+      },
+      })
+      .then(res => res.json())
+      .then(result => {
+        const {message} = result.message;
+         const messege = {message: message}
+         setMessage(messege);
+      })
+      .catch(err => console.log(err))
       }
     return (
         <div className="container LoginComponent">
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
+                      <h5></h5>
                         <input onChange={HandleChange} id='input' name='email' type="email" placeholder="Enter Email" required title='Enter Email' /> <br />
                         <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Submit</button>
                 </div>
@@ -123,16 +144,5 @@ function LoginComponent() {
     )
 }
 
-function SendData(value) {
-  fetch('https://eshikah.lazytanzil.repl.co/api/auth/login',{
-  method: 'POST',
-  body: JSON.stringify(value),
-  headers: {
-'Content-type': 'application/json; charset=UTF-8',
-},
-})
-.then(res => res.json())
-.then(data => console.log(data))
-.catch(err => console.log(err))
-}
+
 export default Auth;
