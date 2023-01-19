@@ -22,7 +22,7 @@ const SignUp = () => {
     );
 };
 
-var access_token = new URLSearchParams(window.location.hash).get('access_token');
+// var access_token = new URLSearchParams(window.location.hash).get('access_token');
 
 function SignUpComponent(){
     // const history = useNavigate()
