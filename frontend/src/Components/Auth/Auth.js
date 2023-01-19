@@ -101,7 +101,7 @@ function LoginComponent() {
       SendData(totalValue);
       }
       function SendData(value) {
-        fetch('https://eshikah.lazytanzil.repl.co/api/auth/login',{
+        fetch('https://eshika.lazytanzil.repl.co/api/auth/login',{
         method: 'POST',
         body: JSON.stringify(value),
         headers: {
@@ -110,9 +110,10 @@ function LoginComponent() {
       })
       .then(res => res.json())
       .then(result => {
-        const {message} = result.message;
+        const message = result.message;
          const messege = {message: message}
          setMessage(messege);
+         console.log(messege,result);
       })
       .catch(err => console.log(err))
       }
@@ -121,7 +122,7 @@ function LoginComponent() {
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
-                      <h5>{message.message}</h5>
+                      <h5 style={{fontSize:'15px',color:'red'}}>{message.message}</h5>
                         <input onChange={HandleChange} id='input' name='email' type="email" placeholder="Enter Email" required title='Enter Email' /> <br />
                         <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Submit</button>
                 </div>

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../../Home/Navbar';
-import SignUpIng from '../../../Img/login.webp'
+// import SignUpIng from '../../../Img/login.webp'
 import './SignUp.css'
 import Footer from '../../Home/Foter';
-import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
-
-const notify = () => toast('Here is your toast.');
+// import { Link, useNavigate } from 'react-router-dom';
+// import { toast } from 'react-hot-toast';
+import loginIng1 from '../../../Img/Login Picture/loginIng1.png'
+import loginIng2 from '../../../Img/Login Picture/loginimg2.png'
+import loginIng3 from '../../../Img/Login Picture/loginIng3.png'
+import { useKeenSlider } from 'keen-slider/react';
+import Aos from 'aos';
+// const notify = () => toast('Here is your toast.');
 
 const SignUp = () => {
     return (
@@ -18,33 +22,127 @@ const SignUp = () => {
     );
 };
 
-
-
+var access_token = new URLSearchParams(window.location.hash).get('access_token');
 
 function SignUpComponent(){
-    const history = useNavigate()
-    const handleSubmit = (e) => {
-        history('/dashboard/info')
-        e.preventDefault();
+    // const history = useNavigate()
+    // const handleSubmit = (e) => {
+    //     history('/dashboard/info')
+    //     e.preventDefault();
+    //   }
+      const [sliderRef] = useKeenSlider(
+        {
+          loop: true,
+        },
+        [
+          (slider) => {
+            let timeout
+            let mouseOver = false
+            function clearNextTimeout() {
+              clearTimeout(timeout)
+            }
+            function nextTimeout() {
+              clearTimeout(timeout)
+              if (mouseOver) return
+              timeout = setTimeout(() => {
+                slider.next()
+              }, 2000)
+            }
+            slider.on("created", () => {
+              slider.container.addEventListener("mouseover", () => {
+                mouseOver = true
+                clearNextTimeout()
+              })
+              slider.container.addEventListener("mouseout", () => {
+                mouseOver = false
+                nextTimeout()
+              })
+              nextTimeout()
+            })
+            slider.on("dragStarted", clearNextTimeout)
+            slider.on("animationEnded", nextTimeout)
+            slider.on("updated", nextTimeout)
+          },
+        ]
+      )
+      useEffect(() => {
+        Aos.init({
+            offset: 100,
+            duration: 1000,
+            easing: 'ease'
+        });
+    })
+    const [user,setUser] = useState({
+      isNew: true,
+      email: '',
+      subData:{}
+    })
+    const [message,setMessage] = useState({
+      message: ''
+    })
+    const HandleChange = (e) => {
+      let fildValid = true;
+      if(e.target.name === 'email') {
+          fildValid =  e.target.value;
+      }
+      if (fildValid) {
+          const newUserInfo = {...user};
+          newUserInfo[e.target.name]=e.target.value;
+          setUser(newUserInfo);
+      }
+    }
+    const OnSubmit = () => {
+      const email = user.email;
+      const totalValue = {
+          "email": email,
+      }
+      console.log(totalValue);
+      console.log(JSON.stringify(totalValue));
+      SendData(totalValue);
+      }
+      function SendData(value) {
+        fetch('https://eshika.lazytanzil.repl.co/api/auth/register',{
+        method: 'POST',
+        body: JSON.stringify(value),
+        headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+      },
+      })
+      .then(res => res.json())
+      .then(result => {
+        const message = result.message;
+         const messege = {message: message}
+         setMessage(messege);
+         console.log(messege,result);
+      })
+      .catch(err => console.log(err))
       }
     return (
-        <div className="container SignUpComponent">
-          <div className="row SBottom d-flex justify-content-center align-items-center">
-            <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox">
-                <h1 style={{marginBottom: '20px'}}>Sign Up</h1>  
-                <form onSubmit={handleSubmit}>
-                    <input type="email" placeholder="Email" required /> <br />
-                    <input type="password" placeholder="Password" required id="" /> <br />
-                    <input type="password" placeholder="Confirm Password" required id="" /> <br />
-                    <button onClick={notify} style={{padding: '10px 30px',borderRadius: '30px'}} className='buttons'>Sign Up</button>
-                </form>
-                <hr />
-                 <Link className='link' to="/signin"><button className='buttons' style={{padding: '10px 30px',borderRadius: '30px'}}>Already have an account?</button></Link>
+        <div className="container LoginComponent">
+            <div className="row d-flex justify-content-center align-items-center">
+                <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
+                    <h1 className='Wlc'>Welcome to the new world of learning</h1>
+                      <h5 style={{fontSize:'15px',color:'red'}}>{message.message}</h5>
+                        <input onChange={HandleChange} id='input' name='email' type="email" placeholder="Enter Email" required title='Enter Email' />
+                        <input type="text" name="" id="" />
+                        <br />
+                        <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Submit</button>
+                </div>
+                <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 ImgBoxLogin "data-aos="fade-left">
+                    {/* <h1 className='Wlc' style={{margin:'5px 15px'}}>Participate in daily live classes and keep yourself engaged</h1> */}
+                <div ref={sliderRef} className="keen-slider">
+                    <div className="keen-slider__slide number-slide1 manageH">
+                        <img className='manageH' src={loginIng1} alt="" />
+                    </div>
+                    <div className="keen-slider__slide number-slide2 manageH" >
+                    <img className='manageH' src={loginIng2} alt="" />
+                    </div>
+                    <div className="keen-slider__slide number-slide2 manageH" >
+                    <img className='manageH' src={loginIng3} alt="" />
+                    </div>
+                </div>
+                </div>
             </div>
-            <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 ImgBoxSignUp">
-                <img className="SignUpImg img-fluid" src={SignUpIng} alt="" />
-            </div>
-          </div>
         </div>
     )
 }
