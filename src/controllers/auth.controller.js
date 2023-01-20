@@ -57,7 +57,7 @@ const loginController = async (req, res, next) => {
 
     return res.status(200).json({
       success: true,
-      message: "please check you email",
+      message: "please check your email",
     });
   } catch (error) {
     next(error);
@@ -75,7 +75,7 @@ const registerController = async (req, res, next) => {
     const { isValid, email } = authService.verifySignupToken(token);
     if (!isValid) error("Invalid signup token provided", 400);
     // check if user exists with that mail
-    const user = await userService.findUser("email", email);
+    let user = await userService.findUser("email", email);
     if (user)
       error(
         "You have already registered using that token, please try to login",
@@ -83,16 +83,26 @@ const registerController = async (req, res, next) => {
       );
 
     // create a new user
-    await userService.createUser(email, {
+    user = await userService.createUser(email, {
       firstName,
       lastName,
       dateOfBirth,
       status: "active",
     });
 
+    // generate login token with that information
+    const loginToken = authService.generateLoginToken(user.email, {
+      firstName,
+      lastName,
+      role,
+      status: user.status,
+      id,
+      dateOfBirth,
+    });
     res.status(200).json({
       success: true,
-      message: "Account Created Successfully, Please login",
+      message: "Account Created Successfully",
+      token: loginToken,
     });
   } catch (error) {
     next(error);
