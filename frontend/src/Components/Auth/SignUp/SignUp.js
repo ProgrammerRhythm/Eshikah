@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../../Home/Navbar';
 // import SignUpIng from '../../../Img/login.webp'
 import './SignUp.css'
+import { useJwt } from "react-jwt";
 import Footer from '../../Home/Foter';
 // import { Link, useNavigate } from 'react-router-dom';
 // import { toast } from 'react-hot-toast';
@@ -22,7 +23,6 @@ const SignUp = () => {
     );
 };
 
-// var access_token = new URLSearchParams(window.location.hash).get('access_token');
 
 function SignUpComponent(){
     // const history = useNavigate()
@@ -30,6 +30,11 @@ function SignUpComponent(){
     //     history('/dashboard/info')
     //     e.preventDefault();
     //   }
+    const queryParams = new URLSearchParams(window.location.search);
+    const token = queryParams.get('token');
+    console.log(token);
+    // const DataObj = useJwt (access_token)
+    // console.log(DataObj);
       const [sliderRef] = useKeenSlider(
         {
           loop: true,
@@ -123,8 +128,10 @@ function SignUpComponent(){
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
                       <h5 style={{fontSize:'15px',color:'red'}}>{message.message}</h5>
-                        <input onChange={HandleChange} id='input' name='email' type="email" placeholder="Enter Email" required title='Enter Email' />
-                        <input type="text" name="" id="" />
+                        <input onChange={HandleChange} className='inputF' name='name' type="text"  placeholder="Enter your name" required title='Enter your name' /> <br />
+                        <input  onChange={HandleChange} placeholder='Which Class(Optional)' name='class' className='inputF' type="text"  id="" />
+                        <br />
+                        <input  onChange={HandleChange} className='inputF' type="date" />
                         <br />
                         <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Submit</button>
                 </div>
