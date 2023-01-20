@@ -123,7 +123,7 @@ function LoginComponent() {
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
                       <h5 style={{fontSize:'15px',color:'red'}}>{message.message}</h5>
-                        <input onChange={HandleChange} id='input' name='email' type="email" placeholder="Enter Email" required title='Enter Email' /> <br />
+                        <input onChange={HandleChange} className='inputF' name='email' type="email" placeholder="Enter Email" required title='Enter Email' /> <br />
                         <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Submit</button>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 ImgBoxLogin "data-aos="fade-left">
