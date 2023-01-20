@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../../Home/Navbar';
 // import SignUpIng from '../../../Img/login.webp'
 import './SignUp.css'
-import { useJwt } from "react-jwt";
+// import { useJwt } from "react-jwt";
 import Footer from '../../Home/Foter';
 // import { Link, useNavigate } from 'react-router-dom';
 // import { toast } from 'react-hot-toast';
