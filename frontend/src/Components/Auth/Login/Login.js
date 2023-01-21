@@ -12,7 +12,7 @@ import Footer from '../../Home/Foter';
 import AOS  from 'aos';
 import 'aos/dist/aos.css';
 import { UserContext } from '../../../App';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 const Login = () => {
     return (
         <div>
@@ -86,10 +86,10 @@ function LoginComponent() {
           setEmail(newUserInfo);
       }
     }
+    // const history = useNavigate()
+    
     const [logedInUser,setLoggedInUser] = useContext(UserContext);
     console.log(logedInUser)
-    const history = useNavigate()
-    
     const OnClick = () => {
       const queryParams = new URLSearchParams(window.location.search);
       const token = queryParams.get('token');
