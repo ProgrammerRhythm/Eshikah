@@ -4,7 +4,7 @@ import { UserContext } from '../../App';
 
 const PrivateRoute = ({ children }) => {
     const location = useLocation()
-    const [logedInUser,setLoggedInUser] = useContext(UserContext)
+    const [logedInUser] = useContext(UserContext)
     return logedInUser.email ? children : <Navigate  to={{
         pathname: "/auth",
         state: { from: location }

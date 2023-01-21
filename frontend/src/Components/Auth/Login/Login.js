@@ -72,6 +72,7 @@ function LoginComponent() {
         });
     })
     const [logedInUser,setLoggedInUser] = useContext(UserContext);
+    console.log(logedInUser)
     const location = useLocation()
     const { from } = location.state || { from: { pathname: "/" } };
     const history = useNavigate()
