@@ -28,13 +28,6 @@ function App() {
           <Route path='/blog/:id' element={<BlogBody />} />
           <Route path='/blog' element={<Blogs />} />
           <Route path='/program' element={<Program/>} />
-          <PrivateRoute>
-          <Route path="/dashboard/profile" element={<Profile />} />
-          <Route path="/dashboard" element={<Info />} />
-          <Route path="/dashboard/info" element={<Info />} />
-          <Route path="/dashboard/clubs" element={<Clubs />} />
-          <Route path="/dashboard/activity" element={<Activity />} />
-          </PrivateRoute>
           <Route path="/dashboard" element={
             <PrivateRoute>
               <Info />
