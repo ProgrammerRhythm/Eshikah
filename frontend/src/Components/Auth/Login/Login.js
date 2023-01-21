@@ -105,7 +105,6 @@ function LoginComponent() {
       const signedInUser = {name:`${firstName} + ' ' + ${lastName}`, email: email}
       setLoggedInUser(signedInUser);
       console.log(Iemail);
-      const Smassege = '';
       if(Iemail.email === email){
         history('/dashboard')
       }
