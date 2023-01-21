@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../Img/logo.png'
+import logo from '../../Img/Eshikha logo/Eshikha-04.png'
 
 const Footer = () => {
     return (
@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="container common">
                 <div className="row rew">
                     <div className="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 gap">
-                        <img className="common" style={{height: '60px'}} src={logo} alt="" />
+                        <img className="common" style={{height: '50px'}} src={logo} alt="" />
                         <p className="common" style={{padding: '0px 10px',color: 'white'}}>Top learning experiences that create more talent in the world.</p>
                     </div>
                     <div className="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
@@ -44,7 +44,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-              <p style={{textAlign: 'center',marginTop: '25px'}} className='common'>© 2022 Skill-Up All rights reserved.</p>
+              <p style={{textAlign: 'center',marginTop: '25px'}} className='common'>© 2023 Eshikha All rights reserved.</p>
         </div>
     );
   };

@@ -5,7 +5,9 @@ import loginIng2 from '../../../Img/Login Picture/loginimg2.png'
 import loginIng3 from '../../../Img/Login Picture/loginIng3.png'
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
+// import { useJwt } from "react-jwt";
 // import './Login.css'
+import jwt_decode from "jwt-decode";
 import Footer from '../../Home/Foter';
 import { useNavigate } from 'react-router-dom';
 import AOS  from 'aos';
@@ -73,6 +75,12 @@ function LoginComponent() {
             easing: 'ease'
         });
     })
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const token = queryParams.get('token');
+    console.log(token);
+    const decoded = jwt_decode(token);
+    console.log(decoded);
     return (
         <div className="container LoginComponent">
             <div className="row d-flex justify-content-center align-items-center">
