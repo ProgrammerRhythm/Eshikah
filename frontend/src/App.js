@@ -35,6 +35,31 @@ function App() {
           <Route path="/dashboard/clubs" element={<Clubs />} />
           <Route path="/dashboard/activity" element={<Activity />} />
           </PrivateRoute>
+          <Route path="/dashboard" element={
+            <PrivateRoute>
+              <Info />
+            </PrivateRoute>
+          } />
+          <Route path="/dashboard/profile" element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          } />
+          <Route path="/dashboard/info" element={
+            <PrivateRoute>
+              <Info />
+            </PrivateRoute>
+          } />
+          <Route path="/dashboard/clubs" element={
+            <PrivateRoute>
+              <Clubs />
+            </PrivateRoute>
+          } />
+          <Route path="/dashboard/activity" element={
+            <PrivateRoute>
+              <Activity />
+            </PrivateRoute>
+          } />
           <Route path="*" element={<NotFound />}/>
         </Routes>
         </UserContext.Provider>
