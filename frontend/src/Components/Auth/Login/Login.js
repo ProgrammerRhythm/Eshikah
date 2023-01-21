@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Navbar from '../../Home/Navbar';
 import loginIng1 from '../../../Img/Login Picture/loginIng1.png'
 import loginIng2 from '../../../Img/Login Picture/loginimg2.png'
@@ -9,9 +9,10 @@ import "keen-slider/keen-slider.min.css"
 // import './Login.css'
 import jwt_decode from "jwt-decode";
 import Footer from '../../Home/Foter';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import AOS  from 'aos';
 import 'aos/dist/aos.css';
+import { UserContext } from '../../../App';
 const Login = () => {
     return (
         <div>
@@ -28,11 +29,6 @@ const Login = () => {
 
 
 function LoginComponent() {
-    const history = useNavigate()
-    const handleSubmit = (e) => {
-        history('/dashboard/info')
-        e.preventDefault();
-    }
     const [sliderRef] = useKeenSlider(
         {
           loop: true,
@@ -75,12 +71,22 @@ function LoginComponent() {
             easing: 'ease'
         });
     })
+    const [logedInUser,setLoggedInUser] = useContext(UserContext);
+    const location = useLocation()
+    const { from } = location.state || { from: { pathname: "/" } };
+    const history = useNavigate()
+    const handleSubmit = (e) => {
+      const queryParams = new URLSearchParams(window.location.search);
+      const token = queryParams.get('token');
+      console.log(token);
+      const UserData = jwt_decode(token);
+      const {email,lastName,firstName,} = UserData;
+      const signedInUser = {name:`${firstName} + ' ' + ${lastName}`, email: email}
+      setLoggedInUser(signedInUser)
+      history(from, { replace: true })
+    }
 
-    const queryParams = new URLSearchParams(window.location.search);
-    const token = queryParams.get('token');
-    console.log(token);
-    const decoded = jwt_decode(token);
-    console.log(decoded);
+    
     return (
         <div className="container LoginComponent">
             <div className="row d-flex justify-content-center align-items-center">

@@ -1,3 +1,4 @@
+import { createContext, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Auth from './Components/Auth/Auth';
 import Login from './Components/Auth/Login/Login';
@@ -12,9 +13,13 @@ import Home from './Components/Home/Home';
 import NotFound from './Components/NotFound/NotFound';
 import Program from './Components/Program/Program';
 
+export const UserContext = createContext();
+
 function App() {
+  const [logedInUser,setLoggedInUser] = useState({})
   return (
-        <Routes>
+        <UserContext.Provider value={[logedInUser,setLoggedInUser]}>
+          <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/auth/signin" element={<Login />} />
           <Route path="/auth/signup" element={<SignUp />} />
@@ -29,6 +34,7 @@ function App() {
           <Route path="/dashboard/activity" element={<Activity />} />
           <Route path="*" element={<NotFound />}/>
         </Routes>
+        </UserContext.Provider>
   );
 }
 
