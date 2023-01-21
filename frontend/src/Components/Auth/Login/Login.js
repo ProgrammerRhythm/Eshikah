@@ -12,7 +12,7 @@ import Footer from '../../Home/Foter';
 import AOS  from 'aos';
 import 'aos/dist/aos.css';
 import { UserContext } from '../../../App';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
     return (
         <div>
@@ -29,6 +29,8 @@ const Login = () => {
 
 
 function LoginComponent() {
+  const [logedInUser,setLoggedInUser] = useContext(UserContext);
+
     const [sliderRef] = useKeenSlider(
         {
           loop: true,
@@ -86,9 +88,11 @@ function LoginComponent() {
           setEmail(newUserInfo);
       }
     }
-    // const history = useNavigate()
+
+    const history = useNavigate()
     
-    const [logedInUser,setLoggedInUser] = useContext(UserContext);
+
+
     console.log(logedInUser)
     const OnClick = () => {
       const queryParams = new URLSearchParams(window.location.search);
@@ -99,6 +103,9 @@ function LoginComponent() {
       const signedInUser = {name:`${firstName} + ' ' + ${lastName}`, email: email}
       setLoggedInUser(signedInUser);
       console.log(Iemail);
+      if(Iemail.email === email){
+        history('/dashboard')
+      }
     }
    
     return (
