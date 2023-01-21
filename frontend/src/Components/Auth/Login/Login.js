@@ -9,7 +9,6 @@ import "keen-slider/keen-slider.min.css"
 // import './Login.css'
 import jwt_decode from "jwt-decode";
 import Footer from '../../Home/Foter';
-import { useLocation, useNavigate } from 'react-router-dom';
 import AOS  from 'aos';
 import 'aos/dist/aos.css';
 import { UserContext } from '../../../App';
@@ -73,10 +72,7 @@ function LoginComponent() {
     })
     const [logedInUser,setLoggedInUser] = useContext(UserContext);
     console.log(logedInUser)
-    const location = useLocation()
-    const { from } = location.state || { from: { pathname: "/" } };
-    const history = useNavigate()
-    const OnClick = (e) => {
+    const OnClick = () => {
       const queryParams = new URLSearchParams(window.location.search);
       const token = queryParams.get('token');
       console.log(token);
@@ -84,7 +80,6 @@ function LoginComponent() {
       const {email,lastName,firstName,} = UserData;
       const signedInUser = {name:`${firstName} + ' ' + ${lastName}`, email: email}
       setLoggedInUser(signedInUser)
-      history(from, { replace: true })
     }
     
     return (
