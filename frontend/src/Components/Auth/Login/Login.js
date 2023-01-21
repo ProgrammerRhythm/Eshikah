@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Navbar from '../../Home/Navbar';
 import loginIng1 from '../../../Img/Login Picture/loginIng1.png'
 import loginIng2 from '../../../Img/Login Picture/loginimg2.png'
@@ -71,9 +71,25 @@ function LoginComponent() {
             easing: 'ease'
         });
     })
+    const [Iemail,setEmail] = useState({
+      Valid: false,
+      email: ''
+    })
+    const HandleChange = (e) => {
+      let fildValid = true;
+      if(e.target.name === 'email') {
+        fildValid =  e.target.value;
+      }
+      if (fildValid) {
+          const newUserInfo = {...Iemail};
+          newUserInfo[e.target.name]=e.target.value;
+          setEmail(newUserInfo);
+      }
+    }
     const [logedInUser,setLoggedInUser] = useContext(UserContext);
     console.log(logedInUser)
     const history = useNavigate()
+    
     const OnClick = () => {
       const queryParams = new URLSearchParams(window.location.search);
       const token = queryParams.get('token');
@@ -81,16 +97,16 @@ function LoginComponent() {
       const UserData = jwt_decode(token);
       const {email,lastName,firstName,} = UserData;
       const signedInUser = {name:`${firstName} + ' ' + ${lastName}`, email: email}
-      setLoggedInUser(signedInUser)
-      history('/dashboard')
+      setLoggedInUser(signedInUser);
+      console.log(Iemail);
     }
-    
+   
     return (
         <div className="container LoginComponent">
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
-                        <input type="email" className='inputF' placeholder="Enter Email" required title='Enter Email' /> <br />
+                        <input onChange={HandleChange} type="email" name='email' className='inputF' placeholder="Enter Email" required title='Enter Email' /> <br />
                         <button onClick={() => OnClick()} style={{ padding: '10px 30px', borderRadius: '30px' }} className='buttons'>Sign In</button>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 ImgBoxLogin "data-aos="fade-left">
