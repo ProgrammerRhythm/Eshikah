@@ -76,7 +76,7 @@ function LoginComponent() {
     const location = useLocation()
     const { from } = location.state || { from: { pathname: "/" } };
     const history = useNavigate()
-    const handleSubmit = (e) => {
+    const OnClick = (e) => {
       const queryParams = new URLSearchParams(window.location.search);
       const token = queryParams.get('token');
       console.log(token);
@@ -86,17 +86,14 @@ function LoginComponent() {
       setLoggedInUser(signedInUser)
       history(from, { replace: true })
     }
-
     
     return (
         <div className="container LoginComponent">
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
-                    <form onSubmit={handleSubmit}>
-                        <input type="email" placeholder="Enter Email" required title='Enter Email' /> <br />
-                        <button style={{ padding: '10px 30px', borderRadius: '30px' }} className='buttons'>Submit</button>
-                    </form>
+                        <input type="email" className='inputF' placeholder="Enter Email" required title='Enter Email' /> <br />
+                        <button onClick={() => OnClick()} style={{ padding: '10px 30px', borderRadius: '30px' }} className='buttons'>Sign In</button>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 ImgBoxLogin "data-aos="fade-left">
                     {/* <h1 className='Wlc' style={{margin:'5px 15px'}}>Participate in daily live classes and keep yourself engaged</h1> */}
