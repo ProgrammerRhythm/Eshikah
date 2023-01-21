@@ -94,9 +94,9 @@ const registerController = async (req, res, next) => {
     const loginToken = authService.generateLoginToken(user.email, {
       firstName,
       lastName,
-      role,
+      role:user.role,
       status: user.status,
-      id,
+      id:user.id,
       dateOfBirth,
     });
     res.status(200).json({
