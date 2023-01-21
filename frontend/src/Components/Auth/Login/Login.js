@@ -91,7 +91,9 @@ function LoginComponent() {
 
     const history = useNavigate()
     
-
+    const [message,setMessage] = useState({
+      message: ''
+    })
 
     console.log(logedInUser)
     const OnClick = () => {
@@ -103,8 +105,13 @@ function LoginComponent() {
       const signedInUser = {name:`${firstName} + ' ' + ${lastName}`, email: email}
       setLoggedInUser(signedInUser);
       console.log(Iemail);
+      const Smassege = '';
       if(Iemail.email === email){
         history('/dashboard')
+      }
+      else{
+        const messege = {message: 'Invalid Message'}
+        setMessage(messege);
       }
     }
    
@@ -113,6 +120,7 @@ function LoginComponent() {
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
+                    <h5 style={{fontSize:'15px',color:'red'}}>{message.message}</h5>
                         <input onChange={HandleChange} type="email" name='email' className='inputF' placeholder="Enter Email" required title='Enter Email' /> <br />
                         <button onClick={() => OnClick()} style={{ padding: '10px 30px', borderRadius: '30px' }} className='buttons'>Sign In</button>
                 </div>
