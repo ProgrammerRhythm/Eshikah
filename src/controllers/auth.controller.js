@@ -17,7 +17,7 @@ const loginController = async (req, res, next) => {
       const firstLoginToken = authService.generateFirstTimeLogin(email);
 
       const generatedTemple = generateTemplate({
-        link: `${process.env.WEBSITE_URL}/signup?token=${firstLoginToken}`,
+        link: `${process.env.WEBSITE_URL}/auth/signup?token=${firstLoginToken}`,
         buttonText: "Create account",
         title: "Create a new Account",
         validFor: "3",
@@ -44,7 +44,7 @@ const loginController = async (req, res, next) => {
     });
 
     const generatedTemple = generateTemplate({
-      link: `${process.env.WEBSITE_URL}/signin?token=${loginToken}`,
+      link: `${process.env.WEBSITE_URL}/auth/signin?token=${loginToken}`,
       buttonText: "login",
       title: "Detected new Login request",
       validFor: "7",
