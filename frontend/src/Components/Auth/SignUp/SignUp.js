@@ -30,9 +30,6 @@ function SignUpComponent(){
     //     history('/dashboard/info')
     //     e.preventDefault();
     //   }
-    const queryParams = new URLSearchParams(window.location.search);
-    const token = queryParams.get('token');
-    console.log(token);
     // const DataObj = useJwt (access_token)
     // console.log(DataObj);
       const [sliderRef] = useKeenSlider(
@@ -78,18 +75,20 @@ function SignUpComponent(){
         });
     })
     const [user,setUser] = useState({
-      isNew: true,
-      email: '',
-      subData:{}
+      firstName: '',
+      lastName: '',
     })
-    const [message,setMessage] = useState({
-      message: ''
+    const [token,setToken] = useState({
+      token: ''
     })
     const HandleChange = (e) => {
       let fildValid = true;
-      if(e.target.name === 'email') {
+      if(e.target.name === 'fName') {
           fildValid =  e.target.value;
       }
+      if(e.target.name === 'lName') {
+        fildValid =  e.target.value;
+    }
       if (fildValid) {
           const newUserInfo = {...user};
           newUserInfo[e.target.name]=e.target.value;
@@ -97,9 +96,17 @@ function SignUpComponent(){
       }
     }
     const OnSubmit = () => {
-      const email = user.email;
+    const queryParams = new URLSearchParams(window.location.search);
+    const token = queryParams.get('token');
+    console.log(token);
+      const firstName = user.firstName;
+      const lastName = user.lastName;
+      const date = new Date().getTime();
       const totalValue = {
-          "email": email,
+          "firstName": firstName,
+          'lastName': lastName,
+          'dateOfBirth': date,
+          'token': token
       }
       console.log(totalValue);
       console.log(JSON.stringify(totalValue));
@@ -115,10 +122,10 @@ function SignUpComponent(){
       })
       .then(res => res.json())
       .then(result => {
-        const message = result.message;
-         const messege = {message: message}
-         setMessage(messege);
-         console.log(messege,result);
+        const token = result.token;
+         const uToken = {token: token}
+         setToken(uToken);
+         console.log(uToken,result);
       })
       .catch(err => console.log(err))
       }
@@ -127,11 +134,9 @@ function SignUpComponent(){
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
-                      <h5 style={{fontSize:'15px',color:'red'}}>{message.message}</h5>
-                        <input onChange={HandleChange} className='inputF' name='name' type="text"  placeholder="Enter your name" required title='Enter your name' /> <br />
-                        <input  onChange={HandleChange} placeholder='Which Class(Optional)' name='class' className='inputF' type="text"  id="" />
-                        <br />
-                        <input  onChange={HandleChange} className='inputF' type="date" />
+                      <h5 style={{fontSize:'15px',color:'red'}}>{token.token}</h5>
+                        <input onChange={HandleChange} className='inputF' name='fName' type="text"  placeholder="Enter your First Name" required title='Enter your First Name' /> <br />
+                        <input  onChange={HandleChange} placeholder='Enter your Last Name' name='lname' className='inputF' type="text"  required  id="" />
                         <br />
                         <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Submit</button>
                 </div>

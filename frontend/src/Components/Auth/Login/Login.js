@@ -102,7 +102,7 @@ function LoginComponent() {
       console.log(token);
       const UserData = jwt_decode(token);
       const {email,lastName,firstName,} = UserData;
-      const signedInUser = {name:`${firstName} + ' ' + ${lastName}`, email: email}
+      const signedInUser = {name:`${firstName} ${lastName}`, email: email}
       setLoggedInUser(signedInUser);
       console.log(Iemail);
       if(Iemail.email === email){
