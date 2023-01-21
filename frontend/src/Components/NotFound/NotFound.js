@@ -8,7 +8,7 @@ const NotFound = () => {
         <div>
             <Navbar></Navbar>
             <div className="NotContent">
-                <img className='img-fluid ImgStyleNot' style={{height: '400px'}} src={Not404Img} alt="" />
+                <img className='img-fluid ImgStyl eNot' style={{height: '400px'}} src={Not404Img} alt="" />
                 <h4>404 Page Not Found</h4>
             </div>
             <Footer></Footer>

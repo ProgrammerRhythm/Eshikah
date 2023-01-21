@@ -44,7 +44,9 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-              <p style={{textAlign: 'center',marginTop: '25px'}} className='common'>© 2023 Eshikha All rights reserved.</p>
+              <div className="CopyR">
+              <p style={{textAlign: 'center',marginTop: '40px'}} className='common'>© 2023 Eshikha All rights reserved.</p>
+              </div>
         </div>
     );
   };

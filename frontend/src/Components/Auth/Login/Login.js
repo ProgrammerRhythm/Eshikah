@@ -109,7 +109,7 @@ function LoginComponent() {
         history('/dashboard')
       }
       else{
-        const messege = {message: 'Invalid Message'}
+        const messege = {message: 'Invalid Email.Please Put Same Email Id'}
         setMessage(messege);
       }
     }
