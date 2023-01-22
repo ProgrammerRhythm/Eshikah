@@ -8,9 +8,10 @@
     font-weight: bold;
     color: #212529;
 }
-.header-content{
-    /* background: linear-gradient(180deg,#684efb .01%,#5a00dd 100.01%)!important; */
+.BlogImg{
+    padding-left: 50px;
 }
+
 .BlogItem{
     display: flex;
     justify-content: center;
@@ -66,5 +67,9 @@ p{
     }
     .BloGH{
         font-size: 18px!important;
+    }
+    .BlogImg{
+        padding-left: 0px;
+        height: 180px;
     }
   }  

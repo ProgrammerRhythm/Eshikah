@@ -17,7 +17,7 @@ const Blogs = () => {
                         <p style={{ lineHeight: '24px', fontSize: '16px', color: 'black' }}>Enjoy a personalized, fun, and interactive learning process while becoming a Hero.</p>
                     </div>
                     <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style={{ textAlign: 'center' }}>
-                        <img src={BlogImg} style={{ paddingLeft: '50px' }} alt="" />
+                        <img src={BlogImg} className='BlogImg' alt="" />
                     </div>
                 </div>
                 <hr style={{ color: 'rgb(127, 86, 217)' }} />
