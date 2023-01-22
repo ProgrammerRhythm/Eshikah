@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './Home.css'
-import Himg from '../../Img/frt-img.png'
+import Himg from '../../Img/frt-img2.png'
 import Sicon from '../../Img/Icon/Speak.png'
 import Bicon from '../../Img/Icon/Vector.png'
 import Cicon from '../../Img/Icon/Layer 2.png'
