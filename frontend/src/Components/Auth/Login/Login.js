@@ -4,6 +4,7 @@ import loginIng1 from '../../../Img/Login Picture/loginIng1.png'
 import loginIng2 from '../../../Img/Login Picture/loginimg2.png'
 import loginIng3 from '../../../Img/Login Picture/loginIng3.png'
 import { useKeenSlider } from "keen-slider/react"
+// import { ToastContainer, toast } from 'react-toastify';
 import "keen-slider/keen-slider.min.css"
 // import { useJwt } from "react-jwt";
 // import './Login.css'
@@ -73,55 +74,36 @@ function LoginComponent() {
             easing: 'ease'
         });
     })
-    const [Iemail,setEmail] = useState({
-      Valid: true,
-      email: ''
-    })
-    const HandleChange = (e) => {
-      let fildValid = true;
-      if(e.target.name === 'email') {
-        fildValid =  e.target.value;
-      }
-      if (fildValid) {
-          const newUserInfo = {...Iemail};
-          newUserInfo[e.target.name]=e.target.value;
-          setEmail(newUserInfo);
-      }
-    }
-
     const history = useNavigate()
-    
     const [message,setMessage] = useState({
       message: ''
     })
 
     console.log(logedInUser)
-    const OnClick = () => {
-      const queryParams = new URLSearchParams(window.location.search);
-      const token = queryParams.get('token');
-      console.log(token);
-      const UserData = jwt_decode(token);
-      const {email,lastName,firstName,} = UserData;
-      const signedInUser = {name:`${firstName} ${lastName}`, email: email}
-      setLoggedInUser(signedInUser);
-      console.log(Iemail);
-      if(Iemail.email === email){
-        history('/dashboard')
-      }
-      else{
-        const messege = {message: 'Invalid Email.Please Put Same Email Id'}
-        setMessage(messege);
-      }
+    const queryParams = new URLSearchParams(window.location.search);
+    const token = queryParams.get('token');
+    console.log(token);
+    const UserData = jwt_decode(token);
+    const {email,lastName,firstName,} = UserData;
+    const signedInUser = {name:`${firstName} ${lastName}`, email: email}
+    setLoggedInUser(signedInUser);
+    if(signedInUser){
+      history('/dashboard')
+    }
+    else{
+      const messege = {message: 'Try Again'}
+      setMessage(messege);
     }
    
     return (
         <div className="container LoginComponent">
+                  
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
                     <h5 style={{fontSize:'15px',color:'red'}}>{message.message}</h5>
-                        <input onChange={HandleChange} type="email" name='email' className='inputF' placeholder="Enter Email" required title='Enter Email' /> <br />
-                        <button onClick={() => OnClick()} style={{ padding: '10px 30px', borderRadius: '30px' }} className='buttons'>Sign In</button>
+                        <input  type="email" name='email' className='inputF' style={{backgroundColor: '#e9ecef'}} placeholder="Enter Email" required title='Enter Email' disabled /> <br />
+                        <button style={{ padding: '10px 30px', borderRadius: '30px' }} className='buttons'>Sign In</button>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 ImgBoxLogin "data-aos="fade-left">
                     {/* <h1 className='Wlc' style={{margin:'5px 15px'}}>Participate in daily live classes and keep yourself engaged</h1> */}
