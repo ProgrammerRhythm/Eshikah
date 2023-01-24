@@ -111,7 +111,6 @@ function LoginComponent() {
       console.log(totalValue);
       console.log(JSON.stringify(totalValue));
       SendData(totalValue);
-      e.preventDefault();
       }
       function SendData(value) {
         fetch('https://eshika.lazytanzil.repl.co/api/auth/login',{

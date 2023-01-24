@@ -134,7 +134,7 @@ function SignUpComponent(){
           const UserData = jwt_decode(token);
           console.log(UserData);
           const {email,lastName,firstName,} = UserData;
-          const signedInUser = {name:`${firstName} ${lastName}`, email: email}
+          const signedInUser = {name:`${firstName} ${lastName}`, email: email,user: true}
           setLoggedInUser(signedInUser);
           const makeJson = JSON.stringify(logedInUser);
           localStorage.setItem('user',makeJson);

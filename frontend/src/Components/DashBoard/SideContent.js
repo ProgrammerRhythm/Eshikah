@@ -1,7 +1,6 @@
 import { UserEdit, ArrowRight2, PasswordCheck, Chart21, Activity } from 'iconsax-react';
-import React, { useContext, useState } from 'react';
+import React, {useState } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../App';
 import profilePicture from '../../Img/Arash.jpg'
 
 const SideContent = () => {
@@ -15,14 +14,15 @@ const SideContent = () => {
 };
 
 function SMPDashboard() {
-    const [logedInUser] = useContext(UserContext)
+    const jsonUser = localStorage.getItem('user');
+    const Luser = JSON.parse(jsonUser)
     return (
         <div class="UserProfile_user-profile__soKtS d-flex flex-column align-items-center border bg-white">
             <label for="user-profile" class="UserProfile_user-profile-label__vWuSg">
                 <img src={profilePicture} alt="" />
             </label>
-            <h1 class="UserProfile_username__+Cz5r mt-3">{logedInUser.name} </h1>
-            <h4 class="UserProfile_user-email__9UamC mt-1">{logedInUser.email}</h4>
+            <h1 class="UserProfile_username__+Cz5r mt-3">{Luser.name} </h1>
+            <h4 class="UserProfile_user-email__9UamC mt-1">{Luser.email}</h4>
         </div>
     )
 }

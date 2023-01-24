@@ -19,7 +19,8 @@ import Blog from '../Data/Blog/Blogs';
 // import "./styles.css";
 
 
-const Home = () => {
+const Home = () => {  
+  //False == New And True == Old
       useEffect(() => {
         AOS.init({
             offset: 100,
