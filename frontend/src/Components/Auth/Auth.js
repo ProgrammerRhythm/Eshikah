@@ -5,6 +5,8 @@ import loginIng2 from '../../Img/Login Picture/loginimg2.png'
 import loginIng3 from '../../Img/Login Picture/loginIng3.png'
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Auth.css'
 import Footer from '../Home/Foter';
 // import { useNavigate } from 'react-router-dom';
@@ -92,6 +94,16 @@ function LoginComponent() {
       }
     }
     const OnSubmit = () => {
+      toast.success('Sending Email..', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
       const email = user.email;
       const totalValue = {
           "email": email,
@@ -119,6 +131,21 @@ function LoginComponent() {
       }
     return (
         <div className="container LoginComponent">
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+              />
+              {/* Same as */}
+            <ToastContainer />
+
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
