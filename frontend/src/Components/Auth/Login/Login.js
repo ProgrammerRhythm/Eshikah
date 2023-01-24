@@ -87,10 +87,10 @@ function LoginComponent() {
     const UserData = jwt_decode(token);
     const {email,lastName,firstName,} = UserData;
     const signedInUser = {name:`${firstName} ${lastName}`, email: email}
-    const jsonUser = localStorage.getItem('user');
-    const Luser = JSON.parse(jsonUser)
+    const makeJson = JSON.stringify(signedInUser);
+    localStorage.setItem('user',makeJson);
     setLoggedInUser(signedInUser);
-    if(Luser){
+    if(signedInUser){
       history('/dashboard')
     }
     else{
