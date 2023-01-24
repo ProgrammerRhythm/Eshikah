@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Auth from './Components/Auth/Auth';
 import Login from './Components/Auth/Login/Login';
@@ -13,31 +13,15 @@ import Home from './Components/Home/Home';
 import NotFound from './Components/NotFound/NotFound';
 import PrivateRoute from './Components/Program/PrivateRoute';
 import Program from './Components/Program/Program';
+
 export const UserContext = createContext();
 
 function App() {
   const [logedInUser,setLoggedInUser] = useState({})
-  const signedInUser = {name:``, email: '',user:false}
-    const makeJson = JSON.stringify(signedInUser);
-    localStorage.setItem('user',makeJson);
-  useEffect(() => {
-    const signedInUser = {name:``, email: '',user:false}
-    const makeJson = JSON.stringify(signedInUser);
-    localStorage.setItem('user',makeJson);
-    // if (Luser) {
-    //   history.push('/dashboard');
-    // } else {
-    //   history.push('/');
-    // }
-  }, []);
-  const loggedIn = localStorage.getItem('user');
-  const Luser = JSON.parse(loggedIn).user;
   return (
         <UserContext.Provider value={[logedInUser,setLoggedInUser]}>
           <Routes>
-          <Route path="/" element={ Luser ? <Profile /> :
-              <Home />
-          } />
+          <Route path="/" element={<Home/>} />
           <Route path="/auth/signin" element={<Login />} />
           <Route path="/auth/signup" element={<SignUp />} />
           <Route path="/auth" element={<Auth />} />
