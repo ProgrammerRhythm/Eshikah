@@ -17,7 +17,9 @@ export const UserContext = createContext();
 
 function App() {
   const [logedInUser,setLoggedInUser] = useState({})
-
+  const signedInUser = {name:``, email: '',user:false}
+    const makeJson = JSON.stringify(signedInUser);
+    localStorage.setItem('user',makeJson);
   useEffect(() => {
     const signedInUser = {name:``, email: '',user:false}
     const makeJson = JSON.stringify(signedInUser);
