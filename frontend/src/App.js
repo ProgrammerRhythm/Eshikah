@@ -13,9 +13,6 @@ import Home from './Components/Home/Home';
 import NotFound from './Components/NotFound/NotFound';
 import PrivateRoute from './Components/Program/PrivateRoute';
 import Program from './Components/Program/Program';
-// import PrivateRoutes from './PrivateRoute/PrivateRoute';
-// import PrivateRoutes from './PrivateRoute/PrivateRoute';
-
 export const UserContext = createContext();
 
 function App() {
