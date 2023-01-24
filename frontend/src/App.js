@@ -1,5 +1,5 @@
-import { createContext, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { createContext, useEffect, useState } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Auth from './Components/Auth/Auth';
 import Login from './Components/Auth/Login/Login';
 import SignUp from './Components/Auth/SignUp/SignUp';
@@ -20,10 +20,22 @@ export const UserContext = createContext();
 
 function App() {
   const [logedInUser,setLoggedInUser] = useState({})
+  const history = useNavigate();
+
+  useEffect(() => {
+    
+    // if (Luser) {
+    //   history.push('/dashboard');
+    // } else {
+    //   history.push('/');
+    // }
+  }, []);
+  const loggedIn = localStorage.getItem('user');
+  const Luser = JSON.parse(loggedIn).user;
   return (
         <UserContext.Provider value={[logedInUser,setLoggedInUser]}>
           <Routes>
-          <Route path="/" element={
+          <Route path="/" element={ Luser ? <Profile /> :
               <Home />
           } />
           <Route path="/auth/signin" element={<Login />} />
