@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Auth from './Components/Auth/Auth';
 import Login from './Components/Auth/Login/Login';
 import SignUp from './Components/Auth/SignUp/SignUp';
@@ -20,7 +20,6 @@ export const UserContext = createContext();
 
 function App() {
   const [logedInUser,setLoggedInUser] = useState({})
-  const history = useNavigate();
 
   useEffect(() => {
     
