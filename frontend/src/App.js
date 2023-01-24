@@ -19,7 +19,9 @@ function App() {
   const [logedInUser,setLoggedInUser] = useState({})
 
   useEffect(() => {
-    
+    const signedInUser = {name:``, email: '',user:false}
+    const makeJson = JSON.stringify(signedInUser);
+    localStorage.setItem('user',makeJson);
     // if (Luser) {
     //   history.push('/dashboard');
     // } else {
