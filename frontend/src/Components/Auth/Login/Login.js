@@ -30,7 +30,6 @@ const Login = () => {
 
 
 function LoginComponent() {
-  const [logedInUser,setLoggedInUser] = useContext(UserContext);
 
     const [sliderRef] = useKeenSlider(
         {
@@ -74,6 +73,8 @@ function LoginComponent() {
             easing: 'ease'
         });
     })
+  const [logedInUser,setLoggedInUser] = useContext(UserContext);
+
     const history = useNavigate()
     const [message,setMessage] = useState({
       message: ''
@@ -86,8 +87,10 @@ function LoginComponent() {
     const UserData = jwt_decode(token);
     const {email,lastName,firstName,} = UserData;
     const signedInUser = {name:`${firstName} ${lastName}`, email: email}
+    const jsonUser = localStorage.getItem('user');
+    const Luser = JSON.parse(jsonUser)
     setLoggedInUser(signedInUser);
-    if(signedInUser){
+    if(Luser){
       history('/dashboard')
     }
     else{

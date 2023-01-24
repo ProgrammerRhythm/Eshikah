@@ -136,6 +136,8 @@ function SignUpComponent(){
           const {email,lastName,firstName,} = UserData;
           const signedInUser = {name:`${firstName} ${lastName}`, email: email}
           setLoggedInUser(signedInUser);
+          const makeJson = JSON.stringify(logedInUser);
+          localStorage.setItem('user',makeJson);
           history('/dashboard')
         })
         .catch(err => console.log(err))

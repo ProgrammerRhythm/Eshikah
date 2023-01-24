@@ -93,7 +93,7 @@ function LoginComponent() {
           setUser(newUserInfo);
       }
     }
-    const OnSubmit = () => {
+    const OnSubmit = (e) => {
       toast.success('Sending Email..', {
         position: "top-right",
         autoClose: 5000,
@@ -111,6 +111,7 @@ function LoginComponent() {
       console.log(totalValue);
       console.log(JSON.stringify(totalValue));
       SendData(totalValue);
+      e.preventDefault();
       }
       function SendData(value) {
         fetch('https://eshika.lazytanzil.repl.co/api/auth/login',{
@@ -128,6 +129,7 @@ function LoginComponent() {
          console.log(messege,result);
       })
       .catch(err => console.log(err))
+     
       }
     return (
         <div className="container LoginComponent">
