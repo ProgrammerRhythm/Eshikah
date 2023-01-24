@@ -19,16 +19,11 @@ import Program from './Components/Program/Program';
 export const UserContext = createContext();
 
 function App() {
-  const signedInUser = {name:``, email:'',user:false}
-  const makeJson = JSON.stringify(signedInUser);
-  localStorage.setItem('user',makeJson);
-  const jsonUser = localStorage.getItem('user');
-  const Luser = JSON.parse(jsonUser).user;
   const [logedInUser,setLoggedInUser] = useState({})
   return (
         <UserContext.Provider value={[logedInUser,setLoggedInUser]}>
           <Routes>
-          <Route path="/" element={ Luser ? <Profile /> :
+          <Route path="/" element={
               <Home />
           } />
           <Route path="/auth/signin" element={<Login />} />
