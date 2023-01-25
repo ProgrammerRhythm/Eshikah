@@ -17,7 +17,7 @@ const loginController = async (req, res, next) => {
       const firstLoginToken = authService.generateFirstTimeLogin(email);
 
       const generatedTemple = generateTemplate({
-        link: `${process.env.WEBSITE_URL}/auth/signup?token=${firstLoginToken}`,
+        link: `${process.env.WEBSITE_URL}/signup?token=${firstLoginToken}`,
         buttonText: "Create account",
         title: "Create a new Account",
         validFor: "3",
@@ -44,7 +44,7 @@ const loginController = async (req, res, next) => {
     });
 
     const generatedTemple = generateTemplate({
-      link: `${process.env.WEBSITE_URL}/auth/signin?token=${loginToken}`,
+      link: `${process.env.WEBSITE_URL}/signin?token=${loginToken}`,
       buttonText: "login",
       title: "Detected new Login request",
       validFor: "7",
@@ -83,26 +83,45 @@ const registerController = async (req, res, next) => {
       );
 
     // create a new user
+<<<<<<< HEAD
+   const user =  await userService.createUser(email, {
+=======
     user = await userService.createUser(email, {
+>>>>>>> origin/backend
       firstName,
       lastName,
       dateOfBirth,
       status: "active",
     });
 
+<<<<<<< HEAD
+         // generate login token with that information
+    const loginToken = authService.generateLoginToken(user.email, {
+      user.firstName,
+      user.lastName,
+      user.role,
+      user.status,
+      user.id,                                           user.dateOfBirth
+    });
+    res.status(200).json({
+      success: true,
+      message: "Account Created Successfully,
+        token: loginToken
+=======
     // generate login token with that information
     const loginToken = authService.generateLoginToken(user.email, {
       firstName,
       lastName,
-      role:user.role,
+      role,
       status: user.status,
-      id:user.id,
+      id,
       dateOfBirth,
     });
     res.status(200).json({
       success: true,
       message: "Account Created Successfully",
       token: loginToken,
+>>>>>>> origin/backend
     });
   } catch (error) {
     next(error);
