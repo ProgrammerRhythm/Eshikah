@@ -1,5 +1,6 @@
 import { AddSquare } from 'iconsax-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Data from '../../Data/Data';
 import '../DashBoard.css'
 import SideContent from '../SideContent';
@@ -28,7 +29,7 @@ function SlideContainer(){
         {
           Data.map(value => <Swipe img={value.img} name={value.name} description={value.description} id={value.id}></Swipe>)
         }
-         <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 BgColor ">
+        <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 BgColor ">
        <div className={`C-Club Clubs`} >
             <h3 className="cH">Join New Club</h3>
             <AddSquare size="35" className="Style"></AddSquare>
@@ -42,11 +43,13 @@ function SlideContainer(){
   function Swipe(props){
     return(
       <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 BgColor ">
+       <Link to={`/dashboard/club/${props.id}`}>
        <div className={`Club${props.id} Clubs`} >
               <img className='cImg' src={props.img} alt="" />
                 <h4 className="cH">{props.name}</h4>
               <p className='cD'>{props.description}</p>
           </div>
+       </Link>
       </div>
     )
   }

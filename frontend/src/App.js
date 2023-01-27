@@ -5,6 +5,8 @@ import Login from './Components/Auth/Login/Login';
 import SignUp from './Components/Auth/SignUp/SignUp';
 import Blogs from './Components/Blog/Blog';
 import BlogBody from './Components/Blog/BlogBody';
+import ClubBody from './Components/Clubs/ClubBody';
+import ClubVdo from './Components/Clubs/ClubVdo';
 import Activity from './Components/DashBoard/Activity/Activity';
 import Clubs from './Components/DashBoard/Clubs/Clubs';
 import Info from './Components/DashBoard/Info/Info';
@@ -26,11 +28,22 @@ function App() {
           <Route path="/auth/signup" element={<SignUp />} />
           <Route path="/auth" element={<Auth />} />
           <Route path='/blog/:id' element={<BlogBody />} />
+          <Route path='/club/:id' element={<ClubBody />} />
           <Route path='/blog' element={<Blogs />} />
           <Route path='/program' element={<Program/>} />
               <Route path="/dashboard" element={
                 <PrivateRoute>
                   <Info />
+                </PrivateRoute>
+              } />
+              <Route path="/dashboard/club/:id" element={
+                <PrivateRoute>
+                  <ClubBody />
+                </PrivateRoute>
+              } />
+               <Route path="/dashboard/club/:id/videos" element={
+                <PrivateRoute>
+                  <ClubVdo />
                 </PrivateRoute>
               } />
               <Route path="/dashboard/profile" element={

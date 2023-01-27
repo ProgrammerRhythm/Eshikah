@@ -38,7 +38,6 @@ function SideBar() {
     return (
         <div class="SideBarLinks_sidebar-links__C5-7U mt-4 bg-white border px-2 py-4">
             <ul class="m-0 p-0">
-               
                 <li class="SideBarLink_sidebar-link__bOMai d-flex justify-content-between align-items-center px-4">
                     <UserEdit></UserEdit>
                     <Link to='/dashboard/info'>

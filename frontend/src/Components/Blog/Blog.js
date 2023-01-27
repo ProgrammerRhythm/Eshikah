@@ -52,7 +52,7 @@ function BlogBox(props) {
                         <p style={{color:'#949494'}}>{date}</p>
                         </div>
                         <p style={{color:'#212529'}}>{`${content}...`}</p>
-                        <Link to={`/blog/${id}`}><button className="BlogBtn"style={{color:'rgb(127, 86, 217)'}}>Read More <ArrowRight size="20" color="rgb(127, 86, 217)"/></button></Link>
+                        <Link to={`/blog/${id}`}><button className="BlogBtn"style={{color:'rgb(127, 86, 217)',padding:'0'}}>Read More <ArrowRight size="20" color="rgb(127, 86, 217)"/></button></Link>
                     </div>
                 </div>
                 </Link>

@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 // import Blog2 from '../Data/Blog/Blog2';
 // import Blog3 from '../Data/Blog/Blog3';
 // import Blog4 from '../Data/Blog/Blog4';
-import Blog from '../Data/Blog/Blogs';
+import HBlogD from '../Data/HBlogD';
 // import "./styles.css";
 
 
@@ -63,7 +63,7 @@ function RBlog(){
 }}>Our recent blogs</h1>
     <div className='row'>
           {
-            Blog.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id} By={data.By}></LoadBlog>)
+            HBlogD.map(data => <LoadBlog img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id} By={data.By}></LoadBlog>)
           }
         {/* <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" data-aos="fade-left">
           {

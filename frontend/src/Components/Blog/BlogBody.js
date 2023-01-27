@@ -22,12 +22,16 @@ const BlogBody = () => {
                 <div  className="container BlogBoody">
                     <Navbar></Navbar>
                     <h1 className="post-title">{blog.title}</h1>
+                    <p style={{color:'gray'}}>Have a limited amount of time? Listen to the blog.</p>
+                    <audio src="" controls>
+
+                    </audio>
                     <p style={{color:'#949494'}}>by <span style={{color:"#dc3545"}}>{blog.By} </span> {blog.date} </p>
                     <img className="img-fluid" src={blog.img} alt="" />
                     <br />
                     <br />
                     <br />
-                    <p style={{color:'#87888a',fontSize:'17px'}}>{blog.content}</p>
+                    <span style={{color:'#87888a',fontSize:'17px'}}>{blog.content}</span>
                 </div>
                 <Footer></Footer>
                 </div>
