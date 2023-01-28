@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+}
+.ClubSHead{
+    padding: 10px 20px;
+}
+.ClubSHead img{
+    margin-bottom: 10px;
+}
+.ClubDeNav ul{
+    display: flex;
+    flex-direction: row;
+    width: 40vh;
+    text-align: center;
+    padding: 12px;
+    list-style-type: none;
+}
+.ClubDeNav ul li{
+    margin-right: 40px;
+}
+.ClubDeNav ul li a:hover{
+    color: #7F56D9!important;
+}
+.ClubSHead{
+    display: flex;
+    flex-direction: row;
+}
+.ClubSHead h2{
+    margin: 6px;
+}
+/* .VdoImg{
+    height: 120px;
+    width: 180px;
+} */
+.VdoBox{
+    height: 110px;
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+.VdoSec{
+    border: 1px solid rgba(128, 128, 128, 0.256);
+    height: 31vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    border-radius: 17px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
+}
+@media screen and (max-width: 1199px) {
+    .VdoBox{
+        height: 90px;
+        margin-bottom: 90px;
+        margin-top: 10px;
+    }
+  }  
+@media screen and (max-width: 991px) {
+    .ClubDeNav ul li{
+        margin-right: 0px;
+        text-align: center;
+    }
+    .ClubDeNav ul{
+        display: flex;
+        flex-direction: row;
+        width: 40vh;
+        justify-content: space-between;
+        text-align: center;
+        padding: 12px;
+        list-style-type: none;
+    }
+    .ClubSHead{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .ClubBody{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .VdoBox{
+        height: 110px;
+        margin-bottom: 50px;
+        margin-top: 10px;
+    }
+    .VdoSec{
+        border: none;
+        height: auto;
+        overflow: auto;
+        border-radius: 17px;
+        box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
+        margin-bottom: 50px;
+        margin-top: 10px;
+    }
+  }  
+
+  @media screen and (max-width: 767px) {
+    .VdoBox{
+        height: 90px;
+        margin-bottom: 120px;
+        margin-top: 20px;
+    }
+    .VdoSec{
+        border: none;
+        height: auto;
+        overflow: auto;
+        border-radius: 17px;
+        box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
+        margin-bottom: 50px;
+        margin-top: 10px;
+    }
+  }  

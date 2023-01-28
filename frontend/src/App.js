@@ -5,8 +5,8 @@ import Login from './Components/Auth/Login/Login';
 import SignUp from './Components/Auth/SignUp/SignUp';
 import Blogs from './Components/Blog/Blog';
 import BlogBody from './Components/Blog/BlogBody';
-import ClubBody from './Components/Clubs/ClubBody';
-import ClubVdo from './Components/Clubs/ClubVdo';
+import ClubBody from './Components/DashBoard/Clubs/ClubBody';
+import ClubVdo from './Components/DashBoard/Clubs/ClubVdo';
 import Activity from './Components/DashBoard/Activity/Activity';
 import Clubs from './Components/DashBoard/Clubs/Clubs';
 import Info from './Components/DashBoard/Info/Info';
@@ -34,11 +34,6 @@ function App() {
               <Route path="/dashboard" element={
                 <PrivateRoute>
                   <Info />
-                </PrivateRoute>
-              } />
-              <Route path="/dashboard/club/:id" element={
-                <PrivateRoute>
-                  <ClubBody />
                 </PrivateRoute>
               } />
                <Route path="/dashboard/club/:id/videos" element={

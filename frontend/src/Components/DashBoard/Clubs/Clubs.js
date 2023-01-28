@@ -43,7 +43,7 @@ function SlideContainer(){
   function Swipe(props){
     return(
       <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 BgColor ">
-       <Link to={`/dashboard/club/${props.id}`}>
+       <Link to={`/dashboard/club/${props.id}/videos`}>
        <div className={`Club${props.id} Clubs`} >
               <img className='cImg' src={props.img} alt="" />
                 <h4 className="cH">{props.name}</h4>
