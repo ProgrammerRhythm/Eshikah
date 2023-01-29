@@ -26,7 +26,7 @@ function Navbar(){
                 <Link className="nav-link MarginT text-dark" to="/Clubs">Clubs</Link>
               </li>
               <li className="nav-item upBtn">
-              <Link to="/auth"><button className='button'>Login/SignUp</button></Link>
+              <Link to="/signin"><button className='button'>Login/SignUp</button></Link>
               </li>
             </ul>
           </div>

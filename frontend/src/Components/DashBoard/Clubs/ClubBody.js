@@ -42,18 +42,18 @@ function ClubSec(props){
         <div className="ClubBody">
             <div className="ClubSHead">
                 <img src={img} alt="" />
-                <h2 className=' mt-1'>{name}</h2>
+                <h2>{name}</h2>
             </div>
             <div className="ClubDeNav mt-1 bg-white px-2">
-                <ul className="border">
+                <ul>
                     <li>
                         <Link style={{color:'black'}}  to={`/dashboard/club/${id}/videos`}>Videos</Link>
                     </li>
                     <li>
-                        <Link style={{color:'black'}} to={`/dashboard/club/${id}/blog`}>Blog</Link>
+                        <Link style={{color:'black'}} to={`/dashboard/club/${id}/videos`}>Blog</Link>
                     </li>
                     <li>
-                    <Link style={{color:'black'}}  to={`/dashboard/club/${id}/liveclsass`}>Live Classes</Link>
+                    <Link style={{color:'black'}}  to={`/dashboard/club/${id}/videos`}>Live Classes</Link>
                     </li>
                 </ul>
             </div>

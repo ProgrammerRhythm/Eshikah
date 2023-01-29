@@ -4,17 +4,19 @@ import loginIng1 from '../../../Img/Login Picture/loginIng1.png'
 import loginIng2 from '../../../Img/Login Picture/loginimg2.png'
 import loginIng3 from '../../../Img/Login Picture/loginIng3.png'
 import { useKeenSlider } from "keen-slider/react"
-// import { ToastContainer, toast } from 'react-toastify';
 import "keen-slider/keen-slider.min.css"
-// import { useJwt } from "react-jwt";
-// import './Login.css'
-import jwt_decode from "jwt-decode";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import '../Auth.css'
 import Footer from '../../Home/Foter';
+// import { useNavigate } from 'react-router-dom';
 import AOS  from 'aos';
 import 'aos/dist/aos.css';
+import { Link, useNavigate } from 'react-router-dom';
+import jwt_decode from "jwt-decode";
 import { UserContext } from '../../../App';
-import { useNavigate } from 'react-router-dom';
-const Login = () => {
+
+const Auth = () => {
     return (
         <div>
             <Navbar></Navbar>
@@ -24,12 +26,16 @@ const Login = () => {
     );
 };
 
-
-
-
-
-
 function LoginComponent() {
+  const [logedInUser,setLoggedInUser] = useContext(UserContext);
+  console.log(logedInUser);
+    // const history = useNavigate()
+    // const handleSubmit = (e) => {
+    //     // history('/dashboard/info')
+    //     // e.preventDefault();
+    //     console.log(e);
+    // }
+    
 
     const [sliderRef] = useKeenSlider(
         {
@@ -73,40 +79,111 @@ function LoginComponent() {
             easing: 'ease'
         });
     })
-  const [logedInUser,setLoggedInUser] = useContext(UserContext);
-
-    const history = useNavigate()
+    const [user,setUser] = useState({
+      isNew: true,
+      email: '',
+      subData:{},
+      password: '',
+    })
     const [message,setMessage] = useState({
       message: ''
     })
-
-    console.log(logedInUser)
-    const queryParams = new URLSearchParams(window.location.search);
-    const token = queryParams.get('token');
-    console.log(token);
-    const UserData = jwt_decode(token);
-    const {email,lastName,firstName,} = UserData;
-    const signedInUser = {name:`${firstName} ${lastName}`, email: email,UserS:true}
-    const makeJson = JSON.stringify(signedInUser);
-    localStorage.setItem('user',makeJson);
-    setLoggedInUser(signedInUser);
-    if(signedInUser){
-      history('/dashboard')
+    const HandleChange = (e) => {
+      let fildValid = true;
+      if(e.target.name === 'email') {
+          fildValid =  e.target.value;
+      }
+      if(e.target.name === 'password') {
+        fildValid =  e.target.value;
     }
-    else{
-      const messege = {message: 'Try Again'}
-      setMessage(messege);
+      if (fildValid) {
+          const newUserInfo = {...user};
+          newUserInfo[e.target.name]=e.target.value;
+          setUser(newUserInfo);
+      }
     }
-   
+    const OnSubmit = (e) => {
+      toast.success('Wait Please..', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+      const email = user.email;
+      const password = user.password;
+      const totalValue = {
+          "email": email,
+          "password": password
+      }
+      console.log(totalValue);
+      console.log(JSON.stringify(totalValue));
+      SendData(totalValue);
+      }
+      const history = useNavigate();
+      function SendData(value) {
+        fetch('https://eshika.onrender.com/api/auth/login',{
+        method: 'POST',
+        body: JSON.stringify(value),
+        headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+      },
+      })
+      .then(res => res.json())
+      .then(result => {
+        const message = result.message;
+         const messege = {message: message}
+         setMessage(messege);
+         console.log(messege,result);
+         const token = result.token;
+         const UserData = jwt_decode(token);
+         console.log(UserData);
+         const {email,lastName,firstName,institution,password} = UserData;
+         const signedInUser = {name:`${firstName} ${lastName}`, email: email,institution:institution,password:password}
+         console.log(signedInUser);
+         setLoggedInUser(signedInUser);
+         const makeJson = JSON.stringify(signedInUser);
+         localStorage.setItem('user',makeJson);
+         history('/dashboard')
+      })
+      .catch(err => 
+        {
+        const message = err.error;
+         const messege = {message: message}
+         setMessage(messege);
+        }
+        )
+     
+      }
     return (
         <div className="container LoginComponent">
-                  
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+              />
+              {/* Same as */}
+            <ToastContainer />
+
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
-                    <h5 style={{fontSize:'15px',color:'red'}}>{message.message}</h5>
-                        <input  type="email" name='email' className='inputF' style={{backgroundColor: '#e9ecef'}} placeholder="Enter Email" required title='Enter Email' disabled /> <br />
-                        <button style={{ padding: '10px 30px', borderRadius: '30px' }} className='buttons'>Sign In</button>
+                      <h5 style={{fontSize:'15px',color:'red'}}>{message.message}</h5>
+                        <input onChange={HandleChange} className='inputF' name='email' type="email" placeholder="Enter Email" required title='Enter Email' /> <br />
+                        <input onChange={HandleChange} className='inputF' name='password' type="password" placeholder="Enter Password" required title='Enter Password' /> <br />
+                        <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Sign In</button>
+                        <hr />
+                 <Link className='link' to="/auth"><button className='buttons' style={{padding: '10px 30px',borderRadius: '30px'}}>Create Account</button></Link>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 ImgBoxLogin "data-aos="fade-left">
                     {/* <h1 className='Wlc' style={{margin:'5px 15px'}}>Participate in daily live classes and keep yourself engaged</h1> */}
@@ -128,4 +205,4 @@ function LoginComponent() {
 }
 
 
-export default Login;
+export default Auth;

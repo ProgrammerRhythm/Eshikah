@@ -6,9 +6,10 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation()
     const jsonUser = localStorage.getItem('user');
     const Luser = JSON.parse(jsonUser)
+    console.log(Luser);
     // const [logedInUser] = useContext(UserContext)
     return Luser.email ? children : <Navigate  to={{
-        pathname: "/auth",
+        pathname: "/signin",
         state: { from: location }
       }} />;
 };

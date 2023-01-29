@@ -113,7 +113,7 @@ function LoginComponent() {
       SendData(totalValue);
       }
       function SendData(value) {
-        fetch('https://eshika.lazytanzil.repl.co/api/auth/login',{
+        fetch('https://eshika.onrender.com/api/auth/login',{
         method: 'POST',
         body: JSON.stringify(value),
         headers: {

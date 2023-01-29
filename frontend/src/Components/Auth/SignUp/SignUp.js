@@ -80,8 +80,11 @@ function SignUpComponent(){
         });
     })
     const [user,setNewUser] = useState({
+      email: '',
       firstName: '',
       lastName: '',
+      password: '',
+      institution: '',
     })
     // const [token,setToken] = useState({
     //   token: ''
@@ -93,7 +96,16 @@ function SignUpComponent(){
       }
       if(e.target.name === 'lastName') {
         fildValid =  e.target.value;
-    }
+      }
+      if(e.target.name === 'password') {
+        fildValid =  e.target.value;
+      }
+      if(e.target.name === 'institution') {
+        fildValid =  e.target.value;
+      }
+      if(e.target.name === 'email') {
+        fildValid =  e.target.value;
+      }
       if (fildValid) {
           const newUserInfo = {...user};
           newUserInfo[e.target.name]=e.target.value;
@@ -107,12 +119,18 @@ function SignUpComponent(){
       console.log(token);
         const firstName = user.firstName;
         const lastName = user.lastName;
+        const institution = user.institution;
+        const password = user.password;
+        const email = user.email;
         const date = new Date().getTime();
         const totalValue = {
             "firstName": firstName,
             'lastName': lastName,
             'dateOfBirth': date,
-            'token': token
+            'institution': institution,
+            'password': password,
+            'signupToken': token,
+            'email': email,
         }
         console.log(totalValue);
         console.log(JSON.stringify(totalValue));
@@ -120,7 +138,7 @@ function SignUpComponent(){
         }
         const history = useNavigate();
         function SendData(value) {
-          fetch('https://eshika.lazytanzil.repl.co/api/auth/register',{
+          fetch('https://eshika.onrender.com/api/auth/register',{
           method: 'POST',
           body: JSON.stringify(value),
           headers: {
@@ -129,14 +147,17 @@ function SignUpComponent(){
         })
         .then(res => res.json())
         .then(result => {
-          
+          const message = result.message;
+          const messege = {message: message}
+          console.log(messege,result);
           const token = result.token;
           const UserData = jwt_decode(token);
           console.log(UserData);
-          const {email,lastName,firstName,} = UserData;
-          const signedInUser = {name:`${firstName} ${lastName}`, email: email,UserS:false}
+          const {email,lastName,firstName,institution,password} = UserData;
+          const signedInUser = {name:`${firstName} ${lastName}`, email: email,institution:institution,password:password}
+          console.log(signedInUser);
           setLoggedInUser(signedInUser);
-          const makeJson = JSON.stringify(user);
+          const makeJson = JSON.stringify(signedInUser);
           localStorage.setItem('user',makeJson);
           history('/dashboard')
         })
@@ -150,9 +171,11 @@ function SignUpComponent(){
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
                       {/* <h5 style={{fontSize:'15px',color:'red'}}>{token.token}</h5> */}
                         <input onChange={HandleChange} className='inputF' name='firstName' type="text"  placeholder="Enter your First Name" required title='Enter your first Name' /> <br />
-                        <input  onChange={HandleChange} placeholder='Enter your Last Name' name='lastName' className='inputF' type="text"  required title='Enter your last Name'  id="" />
+                        <input  onChange={HandleChange} placeholder='Enter your Last Name' name='lastName' className='inputF' type="text"  required title='Enter your last Name' />
                         <br />
-                        <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Submit</button>
+                        <input  onChange={HandleChange} placeholder='Enter Password' className='inputF' required type="password" name="password" id="" /> <br />
+                        <input onChange={HandleChange} type="text" placeholder="Enter your Institution Name (Optional)"className='inputF' name='institution' /> <br />
+                        <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Sign Up</button>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 ImgBoxLogin "data-aos="fade-left">
                     {/* <h1 className='Wlc' style={{margin:'5px 15px'}}>Participate in daily live classes and keep yourself engaged</h1> */}
