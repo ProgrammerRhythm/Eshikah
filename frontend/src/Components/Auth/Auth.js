@@ -80,7 +80,7 @@ function LoginComponent() {
       subData:{}
     })
     const [message,setMessage] = useState({
-      message: ''
+      mass: ''
     })
     const HandleChange = (e) => {
       let fildValid = true;
@@ -122,10 +122,16 @@ function LoginComponent() {
       })
       .then(res => res.json())
       .then(result => {
-        const message = result.message;
-         const messege = {message: message}
-         setMessage(messege);
-         console.log(messege,result);
+        if(result.success){
+        const massage = 'Please Check Your Email'
+        const messege = {mass: massage}
+        setMessage(messege);
+        }
+        else{
+        const massage = 'You have already registered your email address'
+        const messege = {mass: massage}
+       setMessage(messege);
+        }
       })
       .catch(err => console.log(err))
      
@@ -150,7 +156,7 @@ function LoginComponent() {
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
-                      <h5 style={{fontSize:'15px',color:'red'}}>{message.message}</h5>
+                      <h5 style={{fontSize:'15px',color:'red'}}>{message.mass}</h5>
                         <input onChange={HandleChange} className='inputF' name='email' type="email" placeholder="Enter Email" required title='Enter Email' /> <br />
                         <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Submit</button>
                 </div>

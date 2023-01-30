@@ -86,7 +86,7 @@ function LoginComponent() {
       password: '',
     })
     const [message,setMessage] = useState({
-      message: ''
+      mass: ''
     })
     const HandleChange = (e) => {
       let fildValid = true;
@@ -134,10 +134,18 @@ function LoginComponent() {
       })
       .then(res => res.json())
       .then(result => {
-        const message = result.message;
-         const messege = {message: message}
-         setMessage(messege);
-         console.log(messege,result);
+        // const message = result.success ? result.message : result.error;
+        //  const messege = {mass: message}
+         if(result.success){
+           const massage = 'Wait Please..'
+         const messege = {mass: massage}
+           setMessage(messege);
+         }
+         else{
+          const massage = 'Invalid Password Or Email Address'
+         const messege = {mass: massage}
+        setMessage(messege);
+         }
          const token = result.token;
          const UserData = jwt_decode(token);
          console.log(UserData);
@@ -147,14 +155,8 @@ function LoginComponent() {
          setLoggedInUser(signedInUser);
          const makeJson = JSON.stringify(signedInUser);
          localStorage.setItem('user',makeJson);
-         history('/dashboard')
-      })
-      .catch(err => 
-        {
-        const message = err.error;
-         const messege = {message: message}
-         setMessage(messege);
-        }
+         history('/dashboard')})
+      .catch(err => console.log(err)
         )
      
       }
@@ -177,8 +179,8 @@ function LoginComponent() {
 
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
+                <h5 style={{fontSize:'15px',color:'red'}}>{message.mass}</h5>
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
-                      <h5 style={{fontSize:'15px',color:'red'}}>{message.message}</h5>
                         <input onChange={HandleChange} className='inputF' name='email' type="email" placeholder="Enter Email" required title='Enter Email' /> <br />
                         <input onChange={HandleChange} className='inputF' name='password' type="password" placeholder="Enter Password" required title='Enter Password' /> <br />
                         <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Sign In</button>
