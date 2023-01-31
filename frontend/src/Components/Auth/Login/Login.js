@@ -105,7 +105,7 @@ function LoginComponent() {
     const OnSubmit = (e) => {
       toast.success('Wait Please..', {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 10000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -150,7 +150,7 @@ function LoginComponent() {
          const UserData = jwt_decode(token);
          console.log(UserData);
          const {email,lastName,firstName,institution,password} = UserData;
-         const signedInUser = {name:`${firstName} ${lastName}`, email: email,institution:institution,password:password}
+         const signedInUser = {name:`${firstName} ${lastName}`, email: email,institution:institution,password:password,token:token}
          console.log(signedInUser);
          setLoggedInUser(signedInUser);
          const makeJson = JSON.stringify(signedInUser);
@@ -164,7 +164,7 @@ function LoginComponent() {
         <div className="container LoginComponent">
             <ToastContainer
               position="top-right"
-              autoClose={5000}
+              autoClose={10000}
               hideProgressBar={false}
               newestOnTop={false}
               closeOnClick

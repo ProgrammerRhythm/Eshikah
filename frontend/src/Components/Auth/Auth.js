@@ -96,7 +96,7 @@ function LoginComponent() {
     const OnSubmit = (e) => {
       toast.success('Sending Email..', {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 8000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -140,7 +140,7 @@ function LoginComponent() {
         <div className="container LoginComponent">
             <ToastContainer
               position="top-right"
-              autoClose={5000}
+              autoClose={8000}
               hideProgressBar={false}
               newestOnTop={false}
               closeOnClick

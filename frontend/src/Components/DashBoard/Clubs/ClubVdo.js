@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import SideContent from '../SideContent';
-import Data from '../../Data/Data';
+import ClubData from '../../Data/ClubData';
 import Video from '../../Data/VdoData';
 import NotFound from '../../NotFound/NotFound';
 import './Club.css'
@@ -9,7 +9,7 @@ const ClubVdo = () => {
     const {id} = useParams();
     const [club,setClub] = useState(null);
     useEffect(() => {
-        let club = Data.find((club) => club.id === id);
+        let club = ClubData.find((club) => club.id === id);
         if(club) {
             setClub(club);
         }
@@ -65,7 +65,7 @@ function ClubSec(props){
                         <Link style={{color:'black'}}  to={`/dashboard/club/${id}/videos`}>Videos</Link>
                     </li>
                     <li>
-                        <Link style={{color:'black'}} to={`/dashboard/club/${id}/videos`}>Blog</Link>
+                        <Link style={{color:'black'}} to={`/dashboard/club/${id}/blog`}>Blog</Link>
                     </li>
                     <li>
                     <Link style={{color:'black'}}  to={`/dashboard/club/${id}/videos`}>Live Classes</Link>

@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     const Luser = JSON.parse(jsonUser)
     console.log(Luser);
     // const [logedInUser] = useContext(UserContext)
-    return Luser.email ? children : <Navigate  to={{
+    return Luser.token ? children : <Navigate  to={{
         pathname: "/signin",
         state: { from: location }
       }} />;

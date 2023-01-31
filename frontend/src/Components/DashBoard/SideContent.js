@@ -21,7 +21,7 @@ function SMPDashboard() {
             <label for="user-profile" class="UserProfile_user-profile-label__vWuSg">
                 <img src={profilePicture} alt="" />
             </label>
-            <h1 class="UserProfile_username__+Cz5r mt-3">{Luser.name} </h1>
+            <h1 class="UserProfile_username__+Cz5r mt-3">{Luser.name.toUpperCase()} </h1>
             <h4 class="UserProfile_user-email__9UamC mt-1">{Luser.email}</h4>
         </div>
     )

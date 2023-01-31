@@ -1,7 +1,7 @@
 import { AddSquare } from 'iconsax-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Data from '../../Data/Data';
+import ClubData from '../../Data/ClubData';
 import '../DashBoard.css'
 import SideContent from '../SideContent';
 const Clubs = () => {
@@ -27,7 +27,7 @@ function SlideContainer(){
       <div className='container service'>
         <div className="row Sbox BgColor">
         {
-          Data.map(value => <Swipe img={value.img} name={value.name} description={value.description} id={value.id}></Swipe>)
+          ClubData.map(value => <Swipe img={value.img} name={value.name} description={value.description} id={value.id}></Swipe>)
         }
         <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 BgColor ">
        <div className={`C-Club Clubs`} >

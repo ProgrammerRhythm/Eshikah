@@ -15,6 +15,7 @@ import Home from './Components/Home/Home';
 import NotFound from './Components/NotFound/NotFound';
 import PrivateRoute from './Components/Program/PrivateRoute';
 import Program from './Components/Program/Program';
+import ClubBlog from './Components/DashBoard/Clubs/ClubBlog';
 
 export const UserContext = createContext();
 
@@ -39,6 +40,11 @@ function App() {
                <Route path="/dashboard/club/:id/videos" element={
                 <PrivateRoute>
                   <ClubVdo />
+                </PrivateRoute>
+              } />
+              <Route path="/dashboard/club/:id/blog" element={
+                <PrivateRoute>
+                  <ClubBlog />
                 </PrivateRoute>
               } />
               <Route path="/dashboard/profile" element={
