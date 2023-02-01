@@ -82,6 +82,7 @@ function LoginComponent() {
     const [message,setMessage] = useState({
       mass: ''
     })
+    console.log(message);
     const HandleChange = (e) => {
       let fildValid = true;
       if(e.target.name === 'email') {
