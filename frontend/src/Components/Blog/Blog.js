@@ -24,7 +24,7 @@ const Blogs = () => {
                 <div className="BlogItem">
                 <div className="row">
                     {
-                        Blog.map(data => <BlogBox img={data.img} date={data.date} title={data.title} content={data.smDec} about={data.about} id={data.id} By={data.By}></BlogBox>)
+                        Blog.map(data => <BlogBox img={data.img} date={data.date} title={data.title} content={data.content} about={data.about} id={data.id} By={data.By}></BlogBox>)
                     }
                 </div>
                 </div>
@@ -36,7 +36,7 @@ const Blogs = () => {
 
 function BlogBox(props) {
     let { img, title, content, By, date, id } = props;
-    content = content.slice(0, 96)
+    content = content.slice(0, 90)
     return (
         
             <div className="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">

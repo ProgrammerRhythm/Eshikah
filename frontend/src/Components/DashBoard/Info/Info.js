@@ -28,11 +28,11 @@ function SlideContainer() {
                 <div class="mt-5 px-3 row">
                     <div class="p-0 col-lg col-12">
                         <label class="FormInput_form-label__QZuzv form-label" for="first-name-input">First Name</label>
-                        <input placeholder="Arash" autocomplete="off" name="firstName" spellcheck="off" type="text" id="first-name-input" class="FormInput_form-input__AY5CP py-2 form-control form-control-sm" />
+                        <input placeholder="First Name" autocomplete="off" name="firstName" spellcheck="off" type="text" id="first-name-input" class="FormInput_form-input__AY5CP py-2 form-control form-control-sm" />
                     </div>
                     <div class="p-0 ms-lg-5 mt-3 mt-lg-0 col-lg col-12">
                         <label class="FormInput_form-label__QZuzv form-label" for="last-name-input">Last Name</label>
-                        <input placeholder="Karimi" autocomplete="off" name="lastName" spellcheck="off" type="text" id="last-name-input" class="FormInput_form-input__AY5CP py-2 form-control form-control-sm" />
+                        <input placeholder="Last Name" autocomplete="off" name="lastName" spellcheck="off" type="text" id="last-name-input" class="FormInput_form-input__AY5CP py-2 form-control form-control-sm" />
                     </div>
                 </div>
                 <div class="mt-3 mt-lg-4 px-3 row">
@@ -40,10 +40,7 @@ function SlideContainer() {
                         <label class="FormInput_form-label__QZuzv form-label" for="email-input">Email</label>
                         <input placeholder="Enter your Email" autocomplete="off" name="email" spellcheck="off" type="text" id="email-input" class="FormInput_form-input__AY5CP py-2 form-control form-control-sm"/>
                     </div>
-                    <div class="p-0 ms-lg-5 mt-3 mt-lg-0 col-lg col-12">
-                        <label class="FormInput_form-label__QZuzv form-label" for="birthday-input">birthday</label>
-                        <input placeholder="Enter your birthday" autocomplete="off" name="birthday" spellcheck="off" type="date" id="birthday-input" class="FormInput_form-input__AY5CP py-2 form-control form-control-sm"  />
-                    </div></div>
+                </div>
                 <button type="submit" class="mt-5 py-2 px-4 btn btn-primary">Update</button></form></div>
     )
 }

@@ -17,7 +17,7 @@ function SMPDashboard() {
     const jsonUser = localStorage.getItem('user');
     const Luser = JSON.parse(jsonUser)
     return (
-        <div class="UserProfile_user-profile__soKtS d-flex flex-column align-items-center border bg-white">
+        <div class="UserProfile_user-profile__soKtS d-flex flex-column align-items-center border bg-white marginUp">
             <label for="user-profile" class="UserProfile_user-profile-label__vWuSg">
                 <img src={profilePicture} alt="" />
             </label>

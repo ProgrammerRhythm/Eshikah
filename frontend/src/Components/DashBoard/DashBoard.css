@@ -131,6 +131,9 @@ img, svg {
     padding: 30px;
 }
 @media screen and (max-width: 991px) {
+    .marginUp{
+        margin-top: 100px;
+    }
     .Panel_panel-wrapper{
         background-color: #fff;
         min-height: 100vh;

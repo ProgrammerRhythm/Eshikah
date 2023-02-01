@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Blog from '../../Data/Blog/Blogs';
-import Data from '../../Data/Data';
+import ClubBlogD from '../../Data/Blog/ClubBlogD';
+import ClubData from '../../Data/ClubData';
 import NotFound from '../../NotFound/NotFound';
 import SideContent from '../SideContent';
 
@@ -9,19 +9,19 @@ const ClubBlog = () => {
     const {id} = useParams();
     const [club,setClub] = useState(null);
     useEffect(() => {
-        let club = Data.find((club) => club.id === id);
+        let club = ClubData.find((club) => club.id === id);
         if(club) {
             setClub(club);
         }
     },[id])
     const [blog,setBlog] = useState(null);
-
     useEffect(() => {
-        let blog = Blog.find((blog) => blog.about === parseInt(id));
+        let blog = ClubBlogD.find((data) => data.about === id);
         if(blog) {
-            setBlog(blog);
+            setBlog(blog.blogs);
         }
     },[id])
+
     return (
         <div>
         {club ? (
@@ -36,7 +36,9 @@ const ClubBlog = () => {
                        {
                         blog ? (
                             <div className="VdoSec container" >
-                                {/* {blog.map(data => <ShowVideos name={data.name} link={data.Link} description={data.description}></ShowVideos>)} */}
+                             {
+                                blog.map(data => <BlogBoxClub img={data.img} id={data.id} title={data.title} content={data.content} By={data.By}></BlogBoxClub> )
+                             }  
                             </div>
                         ) : (<NotFound />)
                        }
@@ -65,13 +67,36 @@ function ClubSec(props){
                         <Link style={{color:'black'}}  to={`/dashboard/club/${id}/videos`}>Videos</Link>
                     </li>
                     <li>
-                        <Link style={{color:'black'}} to={`/dashboard/club/${id}/blog`}>Blog</Link>
+                        <Link style={{color:'black'}} to={`/dashboard/club/${id}/blogs`}>Blog</Link>
                     </li>
                     <li>
-                    <Link style={{color:'black'}}  to={`/dashboard/club/${id}/videos`}>Live Classes</Link>
+                    <Link style={{color:'black'}}  to={`/dashboard/club/${id}/liveclass`}>Live Classes</Link>
                     </li>
                 </ul>
             </div>
+        </div>
+    )
+}
+
+
+
+function BlogBoxClub(props){
+    let content = props.content;
+    content = content.slice(0, 80)
+    return (
+        <div>
+            <Link to={`/Blog/${props.id}`} style={{textDecoration:'none'}}>
+            <div className='BlogBox'>
+            <div className="img">
+                <img className='FBimg ' src={props.img} alt="" />
+            </div>
+            <div className="Bcon">
+                <h5 style={{color:'rgba(16, 24, 40, 1)',fontSize:'17px',fontWeight:'600'}}>{props.title}</h5>
+                <p style={{color:'rgba(102, 112, 133, 1)',fontSize:'15px',fontWeight:'400'}}>{`${content}....`}</p>
+                <p style={{color:'#949494'}}>by <span style={{color:"#dc3545"}}>{props.By}</span></p>
+            </div>    
+        </div>
+        </Link>
         </div>
     )
 }

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import ProgramImage from '../../../Img/program.png'
 import SideContent from '../SideContent';
 import ClubData from '../../Data/ClubData';
-import Video from '../../Data/VdoData';
 import NotFound from '../../NotFound/NotFound';
-import './Club.css'
-const ClubVdo = () => {
+
+const ClubLiveC = () => {
     const {id} = useParams();
     const [club,setClub] = useState(null);
     useEffect(() => {
@@ -14,16 +14,9 @@ const ClubVdo = () => {
             setClub(club);
         }
     },[id])
-    const [vdo,setVdo] = useState(null);
-    useEffect(() => {
-        let vdo = Video.find((data) => data.id === id);
-        if(vdo) {
-            setVdo(vdo.videos);
-        }
-    },[id])
     return (
         <div>
-            {club ? (
+             {club ? (
                <div className="Panel_panel-wrapper d-flex justify-content-center align-items-center">
                <div className="container">
                    <div className="row BgColor">
@@ -32,21 +25,27 @@ const ClubVdo = () => {
                        </div>
                        <div className="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7 BgColor">
                            <ClubSec id={club.id} name={club.name} img={club.img}></ClubSec>
-                           {
-                            vdo ? (
-                                <div className="VdoSec container" >
-                                    {vdo.map(data => <ShowVideos name={data.name} link={data.Link} description={data.description}></ShowVideos>)}
+                           <div className="ProgramContent container">
+                                <div className="row">
+                                    <div  className="leftPa col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                        <h1>Live <span style={{ color: 'rgb(127, 86, 217)' }}> Programs</span> </h1>
+                                        <p style={{ lineHeight: '24px', fontSize: '16px', color: 'rgba(100, 100, 100, 1)' }}>Live online programs offer access to our top-notch education, delivered interactively, flexibly and remotely via cutting-edge technology.</p>
+                                        <button className='Sv' style={{padding: '10px 20px',BackgroundColor:'#7F56D9',color:'rgba(127, 86, 217, 1)',borderRadius:'7px',border:'2px solid #F4EBFF', transition: 'ease-out 0.5s'}}>Join Now</button>
+                                    </div>
+                                    <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                        <img className="img-fluid" src={ProgramImage} alt="" />
+                                    </div>
                                 </div>
-                            ) : (<NotFound />)
-                           }
+                            </div>
+                        </div>
                        </div>
                    </div>
                </div>
+ ) : (
+    <NotFound />
+  )}
            </div>
-      ) : (
-        <NotFound />
-      )}
-        </div>
+        
     );
 };
 
@@ -75,17 +74,5 @@ function ClubSec(props){
         </div>
     )
 }
-function ShowVideos(props) {
-    const {name,link,description} = props;
-    return(
-        <div className="row VdoBox">
-            <iframe className='col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 img-fluid' frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title='Eshikah Videos' width="450" height="230" src={link} id="widget2" data-gtm-yt-inspected-10="true" data-gtm-yt-inspected-1195660_202="true"></iframe>
-                <div className='col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6'>
-                    <h5>{name}</h5>
-                    <p style={{color:"#676767"}}>{description}</p>
-                </div>
-        </div>
-    )
-}
 
-export default ClubVdo;
+export default ClubLiveC;

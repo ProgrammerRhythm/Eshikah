@@ -16,6 +16,7 @@ import NotFound from './Components/NotFound/NotFound';
 import PrivateRoute from './Components/Program/PrivateRoute';
 import Program from './Components/Program/Program';
 import ClubBlog from './Components/DashBoard/Clubs/ClubBlog';
+import ClubLiveC from './Components/DashBoard/Clubs/ClubLiveC';
 
 export const UserContext = createContext();
 
@@ -42,9 +43,14 @@ function App() {
                   <ClubVdo />
                 </PrivateRoute>
               } />
-              <Route path="/dashboard/club/:id/blog" element={
+              <Route path="/dashboard/club/:id/blogs" element={
                 <PrivateRoute>
                   <ClubBlog />
+                </PrivateRoute>
+              } />
+               <Route path="/dashboard/club/:id/liveclass" element={
+                <PrivateRoute>
+                  <ClubLiveC />
                 </PrivateRoute>
               } />
               <Route path="/dashboard/profile" element={

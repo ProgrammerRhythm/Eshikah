@@ -50,10 +50,10 @@ function ClubSec(props){
                         <Link style={{color:'black'}}  to={`/dashboard/club/${id}/videos`}>Videos</Link>
                     </li>
                     <li>
-                        <Link style={{color:'black'}} to={`/dashboard/club/${id}/videos`}>Blog</Link>
+                        <Link style={{color:'black'}} to={`/dashboard/club/${id}/blogs`}>Blog</Link>
                     </li>
                     <li>
-                    <Link style={{color:'black'}}  to={`/dashboard/club/${id}/videos`}>Live Classes</Link>
+                    <Link style={{color:'black'}}  to={`/dashboard/club/${id}/liveclass`}>Live Classes</Link>
                     </li>
                 </ul>
             </div>

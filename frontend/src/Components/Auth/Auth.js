@@ -94,16 +94,7 @@ function LoginComponent() {
       }
     }
     const OnSubmit = (e) => {
-      toast.success('Sending Email..', {
-        position: "top-right",
-        autoClose: 8000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        });
+    
       const email = user.email;
       const totalValue = {
           "email": email,
@@ -126,10 +117,29 @@ function LoginComponent() {
         const massage = 'Please Check Your Email'
         const messege = {mass: massage}
         setMessage(messege);
+        toast.success(massage, {
+          position: "top-right",
+          autoClose: 9000,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
         }
         else{
-        const massage = 'You have already registered your email address'
+        const massage = 'You have already registered with this email address'
         const messege = {mass: massage}
+        toast.error(massage, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
        setMessage(messege);
         }
       })
@@ -140,7 +150,7 @@ function LoginComponent() {
         <div className="container LoginComponent">
             <ToastContainer
               position="top-right"
-              autoClose={8000}
+              autoClose={9500}
               hideProgressBar={false}
               newestOnTop={false}
               closeOnClick
@@ -156,7 +166,7 @@ function LoginComponent() {
             <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
-                      <h5 style={{fontSize:'15px',color:'red'}}>{message.mass}</h5>
+                      {/* <h5 style={{fontSize:'15px',color:'red'}}>{message.mass}</h5> */}
                         <input onChange={HandleChange} className='inputF' name='email' type="email" placeholder="Enter Email" required title='Enter Email' /> <br />
                         <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Submit</button>
                 </div>
