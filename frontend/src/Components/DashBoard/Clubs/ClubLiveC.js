@@ -25,14 +25,14 @@ const ClubLiveC = () => {
                        </div>
                        <div className="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7 BgColor">
                            <ClubSec id={club.id} name={club.name} img={club.img}></ClubSec>
-                           <div className="ProgramContent container">
+                           <div className="LiveClass container">
                                 <div className="row">
-                                    <div  className="leftPa col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                    <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 LiveClass">
                                         <h1>Live <span style={{ color: 'rgb(127, 86, 217)' }}> Programs</span> </h1>
                                         <p style={{ lineHeight: '24px', fontSize: '16px', color: 'rgba(100, 100, 100, 1)' }}>Live online programs offer access to our top-notch education, delivered interactively, flexibly and remotely via cutting-edge technology.</p>
                                         <button className='Sv' style={{padding: '10px 20px',BackgroundColor:'#7F56D9',color:'rgba(127, 86, 217, 1)',borderRadius:'7px',border:'2px solid #F4EBFF', transition: 'ease-out 0.5s'}}>Join Now</button>
                                     </div>
-                                    <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                    <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 LiveImg">
                                         <img className="img-fluid" src={ProgramImage} alt="" />
                                     </div>
                                 </div>

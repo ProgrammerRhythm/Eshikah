@@ -10,7 +10,6 @@
 .ClubDeNav ul{
     display: flex;
     flex-direction: row;
-    width: 40vh;
     text-align: center;
     padding: 12px;
     list-style-type: none;
@@ -25,6 +24,17 @@
     display: flex;
     flex-direction: row;
 }
+.LiveImg img{
+    display: none;
+}
+.LiveClass h1{
+    font-size: 45px;
+    font-weight: 700;
+}
+.LiveClass{
+    margin: 20px;
+    padding: 2% 0px;
+}
 .ClubSHead h2{
     margin: 6px;
 }
@@ -36,10 +46,14 @@
     height: 110px;
     margin-bottom: 50px;
     margin-top: 10px;
+    text-align: left;
+}
+.YtVdo{
+    border-radius: 25px;
 }
 .VdoSec{
     border: 1px solid rgba(128, 128, 128, 0.256);
-    height: 31vh;
+    height: 36.5vh;
     overflow: scroll;
     overflow-x: hidden;
     border-radius: 17px;
@@ -53,6 +67,10 @@
     }
   }  
 @media screen and (max-width: 991px) {
+    .LiveClass{
+        text-align: center;
+        margin: 0;
+    }
     .ClubDeNav ul li{
         margin-right: 0px;
         text-align: center;
@@ -60,8 +78,8 @@
     .ClubDeNav ul{
         display: flex;
         flex-direction: row;
-        width: 40vh;
         justify-content: space-between;
+        width: 40vh;
         text-align: center;
         padding: 12px;
         list-style-type: none;
@@ -79,9 +97,13 @@
         align-items: center;
     }
     .VdoBox{
-        height: 110px;
+        height: 130px;
         margin-bottom: 50px;
         margin-top: 10px;
+    }
+    .YtVdo{
+        height: 165px;
+        border-radius: 30px;
     }
     .VdoSec{
         border: none;
@@ -92,13 +114,24 @@
         margin-bottom: 50px;
         margin-top: 10px;
     }
+    .LiveImg img{
+        display: block;
+    }
   }  
 
   @media screen and (max-width: 767px) {
     .VdoBox{
-        height: 90px;
-        margin-bottom: 120px;
+        height: 155px;
+        margin-bottom: 135px;
         margin-top: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;;
+    }
+    .YtVdo{
+        height: 185px;
+        width: 400px;
+        border-radius: 30px;
     }
     .VdoSec{
         border: none;

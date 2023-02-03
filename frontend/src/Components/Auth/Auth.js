@@ -86,7 +86,13 @@ function LoginComponent() {
     const HandleChange = (e) => {
       let fildValid = true;
       if(e.target.name === 'email') {
-          fildValid =  e.target.value;
+        fildValid = /\S+@\S+\.\S+/.test(e.target.value);
+        fetch('https://eshika.onrender.com/health')
+        .then(res => res.json())
+        .then(data => {
+          console.log(data.message)
+        }
+        )
       }
       if (fildValid) {
           const newUserInfo = {...user};
@@ -120,7 +126,7 @@ function LoginComponent() {
         setMessage(messege);
         toast.success(massage, {
           position: "top-right",
-          autoClose: 9000,
+          autoClose: 10000,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
@@ -133,7 +139,7 @@ function LoginComponent() {
         const messege = {mass: massage}
         toast.error(massage, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 10000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -151,7 +157,7 @@ function LoginComponent() {
         <div className="container LoginComponent">
             <ToastContainer
               position="top-right"
-              autoClose={9500}
+              autoClose={10500}
               hideProgressBar={false}
               newestOnTop={false}
               closeOnClick
