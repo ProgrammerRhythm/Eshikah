@@ -47,7 +47,16 @@ form input{
     display: none;
    }
   }  
-
+  @media screen and (max-width: 425px) {
+    .inputF {
+        width: auto;
+        padding: 8px 20px;
+        border-radius: 8px;
+        border: 1px solid gray;
+        margin: 12px;
+    }
+   }  
+ 
   /* @media screen and (max-width: 1400px) {
     .SignUpComponent{
         height: 75vh;

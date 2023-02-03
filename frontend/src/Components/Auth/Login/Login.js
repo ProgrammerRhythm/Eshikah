@@ -123,7 +123,7 @@ function LoginComponent() {
       const massage = 'Wait Please...'
         toast.success(massage, {
           position: "top-right",
-          autoClose: 6000,
+          autoClose: 20000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
