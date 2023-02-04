@@ -98,15 +98,6 @@ function LoginComponent() {
           const newUserInfo = {...user};
           newUserInfo[e.target.name]=e.target.value;
           setUser(newUserInfo);
-          toast.success('Wait Please', {
-            position: "top-right",
-            autoClose: 10000,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            })
       }
     }
     const OnSubmit = (e) => {
