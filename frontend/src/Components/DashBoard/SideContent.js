@@ -1,6 +1,6 @@
-import { UserEdit, ArrowRight2, PasswordCheck, Chart21, Activity } from 'iconsax-react';
+import { UserEdit, ArrowRight2, PasswordCheck, Chart21, Activity, Logout } from 'iconsax-react';
 import React, {useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import profilePicture from '../../Img/Arash.jpg'
 
 const SideContent = () => {
@@ -16,12 +16,14 @@ const SideContent = () => {
 function SMPDashboard() {
     const jsonUser = localStorage.getItem('user');
     const Luser = JSON.parse(jsonUser)
+    
     return (
         <div class="UserProfile_user-profile__soKtS d-flex flex-column align-items-center border bg-white marginUp">
             <label for="user-profile" class="UserProfile_user-profile-label__vWuSg">
                 <img src={profilePicture} alt="" />
             </label>
             <h1 class="UserProfile_username__+Cz5r mt-3">{Luser.name.toUpperCase()} </h1>
+            <h5 style={{fontSize:'18px',fontWeight:'600'}} class="UserProfile_user-institution">{Luser.institution.toUpperCase()}</h5>
             <h4 class="UserProfile_user-email__9UamC mt-1">{Luser.email}</h4>
         </div>
     )
@@ -29,12 +31,20 @@ function SMPDashboard() {
 
 
 
-
 function SideBar() {
+    const history = useNavigate();
     const [active, setActive] = useState(false);
     const handleClick = () => {
         setActive(!active);
     };
+
+    let User = true;
+    const handleLogout = () => {
+        if(User) {
+         history('/')
+         localStorage.removeItem('user')
+        }
+    }
     return (
         <div class="SideBarLinks_sidebar-links__C5-7U mt-4 bg-white border px-2 py-4">
             <ul class="m-0 p-0">
@@ -73,6 +83,14 @@ function SideBar() {
                    <Link to='/dashboard/activity'>
                         <button className={`${active} NonBtn`} onClick={handleClick} >Activity</button>
                     </Link>
+                    <ArrowRight2></ArrowRight2>
+                </li>
+                <div class="SideBarLink_sidebar-link-border__8c6AH">
+                    <div></div>
+                </div>
+                <li class="SideBarLink_sidebar-link__bOMai d-flex justify-content-between align-items-center px-4">
+                    <Logout></Logout>
+                        <button onClick={handleLogout} type="submit" class="btn btn-primary">Log Out</button>
                     <ArrowRight2></ArrowRight2>
                 </li>
             </ul>

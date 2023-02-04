@@ -6,6 +6,10 @@
 .BgColor{
     background-color: #fff!important;
 }
+.AlignItems{
+    display: flex;
+    align-items: center;
+}
 .UserProfile_user-profile__soKtS {
     border-radius: 30px;
     box-shadow: 0 8px 30px hsl(210deg 8% 62% / 20%);

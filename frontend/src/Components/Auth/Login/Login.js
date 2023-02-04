@@ -192,7 +192,7 @@ function LoginComponent() {
          const UserData = jwt_decode(token);
          console.log(UserData);
          const {email,lastName,firstName,institution,password} = UserData;
-         const signedInUser = {name:`${firstName} ${lastName}`, email: email,institution:institution,password:password,token:token}
+         const signedInUser = {name:`${firstName} ${lastName}`, email: email,institution:institution,password:password,token:token,}
          console.log(signedInUser);
          setLoggedInUser(signedInUser);
          const makeJson = JSON.stringify(signedInUser);
