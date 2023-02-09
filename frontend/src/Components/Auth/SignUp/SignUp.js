@@ -98,10 +98,11 @@ function SignUpComponent(){
         fildValid =  e.target.value;
       }
       if(e.target.name === 'password') {
-        fildValid =  e.target.value;
+        fildValid =  e.target.value ;
       }
       if(e.target.name === 'institution') {
-        fildValid =  e.target.value;
+        const institution = e.target.value.length > 0 || '';
+        fildValid = institution;
       }
       if(e.target.name === 'email') {
         fildValid =  e.target.value;
@@ -119,7 +120,7 @@ function SignUpComponent(){
       console.log(token);
         const firstName = user.firstName;
         const lastName = user.lastName;
-        const institution = user.institution;
+        const institution = user.institution.length;
         const password = user.password;
         const email = user.email;
         const date = new Date().getTime();
