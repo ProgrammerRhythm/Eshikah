@@ -43,7 +43,7 @@
     width: 180px;
 } */
 .VdoBox{
-    height: 110px;
+    /* height: 110px; */
     margin-bottom: 50px;
     margin-top: 10px;
     text-align: left;
@@ -53,9 +53,9 @@
 }
 .VdoSec{
     border: 1px solid rgba(128, 128, 128, 0.256);
-    height: 36.5vh;
-    overflow: scroll;
-    overflow-x: hidden;
+    /* height: 36.5vh; */
+    /* overflow: scroll; */
+    /* overflow-x: hidden; */
     border-radius: 17px;
     box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
 }
@@ -108,7 +108,7 @@
     .VdoSec{
         border: none;
         height: auto;
-        overflow: auto;
+        /* overflow: auto; */
         border-radius: 17px;
         box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
         margin-bottom: 50px;
@@ -136,7 +136,7 @@
     .VdoSec{
         border: none;
         height: auto;
-        overflow: auto;
+        /* overflow: auto; */
         border-radius: 17px;
         box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
         margin-bottom: 50px;

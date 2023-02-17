@@ -5,6 +5,7 @@ import ClubData from '../../Data/ClubData';
 import Video from '../../Data/VdoData';
 import NotFound from '../../NotFound/NotFound';
 import './Club.css'
+import { ArrowSquareLeft } from 'iconsax-react';
 const ClubVdo = () => {
     const {id} = useParams();
     const [club,setClub] = useState(null);
@@ -18,37 +19,60 @@ const ClubVdo = () => {
     useEffect(() => {
         let vdo = Video.find((data) => data.id === id);
         if(vdo) {
-            setVdo(vdo.videos);
+            fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLHiZ4m8vCp9PHnOIT7gd30PCBoYCpGoQM&key=AIzaSyDFgTe6q3q12csOwp9SbGAyh810yagUNMU`)
+            .then(res => res.json())
+            .then(data => setVdo(data.items))
+            
         }
     },[id])
+    // AIzaSyDFgTe6q3q12csOwp9SbGAyh810yagUNMU
+    // https://www.googleapis.com/youtube/v3/playlistItems
+    const [videoLink,setVideoLink] = useState({});
+    var VideoOn = (props) => {
+        const videoLink = props.link;
+       return(
+            setVideoLink(videoLink)
+       )
+    }
     return (
         <div>
             {club ? (
-               <div className="Panel_panel-wrapper d-flex justify-content-center align-items-center">
-               <div className="container">
-                   <div className="row BgColor AlignItems">
-                       <div className="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5 BgColor">
-                           <SideContent></SideContent>
-                       </div>
-                       <div className="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7 BgColor">
+              <div className='container'>
+                 <ArrowSquareLeft size="32" color="black"/>
+                       <div className="BgColor ">
                            <ClubSec id={club.id} name={club.name} img={club.img}></ClubSec>
                            {
                             vdo ? (
                                 <div className="VdoSec container" >
-                                    {vdo.map(data => <ShowVideos name={data.name} link={data.Link} description={data.description}></ShowVideos>)}
+                                   <div className="row">
+                                    <div className="col-8">
+                                    {videoLink.map(data => <ShowI name={data.snippet.title} link={data.snippet.resourceId.videoId} description={data.snippet.description}></ShowI>)}
+                                    </div>
+                                    <div className="col-4">
+                                    {vdo.map(data => <ShowVideos name={data.snippet.title} link={data.snippet.resourceId.videoId} description={data.snippet.description}></ShowVideos>)}
+                                    </div>
+                                   </div>
                                 </div>
                             ) : (<NotFound />)
                            }
                        </div>
-                   </div>
-               </div>
-           </div>
+              </div>
       ) : (
         <NotFound />
       )}
         </div>
     );
 };
+
+function ShowI(props){
+    let {link} = props;
+    return (
+        <div>
+            <iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title='Eshikah Videos' width="450" height="230" src={`https://www.youtube.com/embed/${link}`} id="widget2" data-gtm-yt-inspected-10="true" data-gtm-yt-inspected-1195660_202="true"></iframe>
+        </div>
+    )
+}
+
 
 
 function ClubSec(props){
@@ -76,13 +100,13 @@ function ClubSec(props){
     )
 }
 function ShowVideos(props) {
-    const {name,link,description} = props;
+    let {name,description} = props;
+    description = description.slice(0, 90)
     return(
         <div className="row VdoBox">
-            <iframe className='col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 img-fluid YtVdo' frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title='Eshikah Videos' width="450" height="230" src={link} id="widget2" data-gtm-yt-inspected-10="true" data-gtm-yt-inspected-1195660_202="true"></iframe>
-                <div className='col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6'>
+                <div>
                     <h5 style={{margin:'5px'}}>{name}</h5>
-                    <p style={{color:"#676767"}}>{description}</p>
+                    <p style={{color:"#676767"}}>{`${description}......`}</p>
                 </div>
         </div>
     )
