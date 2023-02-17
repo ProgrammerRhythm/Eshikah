@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import SideContent from '../SideContent';
+// import SideContent from '../SideContent';
 import ClubData from '../../Data/ClubData';
 import Video from '../../Data/VdoData';
 import NotFound from '../../NotFound/NotFound';
@@ -27,13 +27,13 @@ const ClubVdo = () => {
     },[id])
     // AIzaSyDFgTe6q3q12csOwp9SbGAyh810yagUNMU
     // https://www.googleapis.com/youtube/v3/playlistItems
-    const [videoLink,setVideoLink] = useState({});
-    var VideoOn = (props) => {
-        const videoLink = props.link;
-       return(
-            setVideoLink(videoLink)
-       )
-    }
+    // const [videoLink,setVideoLink] = useState({});
+    // var VideoOn = (props) => {
+    //     const videoLink = props.link;
+    //    return(
+    //         setVideoLink(videoLink)
+    //    )
+    // }
     return (
         <div>
             {club ? (
@@ -46,7 +46,7 @@ const ClubVdo = () => {
                                 <div className="VdoSec container" >
                                    <div className="row">
                                     <div className="col-8">
-                                    {videoLink.map(data => <ShowI name={data.snippet.title} link={data.snippet.resourceId.videoId} description={data.snippet.description}></ShowI>)}
+                                    {/* {videoLink.map(data => <ShowI name={data.snippet.title} link={data.snippet.resourceId.videoId} description={data.snippet.description}></ShowI>)} */}
                                     </div>
                                     <div className="col-4">
                                     {vdo.map(data => <ShowVideos name={data.snippet.title} link={data.snippet.resourceId.videoId} description={data.snippet.description}></ShowVideos>)}
@@ -64,14 +64,14 @@ const ClubVdo = () => {
     );
 };
 
-function ShowI(props){
-    let {link} = props;
-    return (
-        <div>
-            <iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title='Eshikah Videos' width="450" height="230" src={`https://www.youtube.com/embed/${link}`} id="widget2" data-gtm-yt-inspected-10="true" data-gtm-yt-inspected-1195660_202="true"></iframe>
-        </div>
-    )
-}
+// function ShowI(props){
+//     let {link} = props;
+//     return (
+//         <div>
+//             <iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title='Eshikah Videos' width="450" height="230" src={`https://www.youtube.com/embed/${link}`} id="widget2" data-gtm-yt-inspected-10="true" data-gtm-yt-inspected-1195660_202="true"></iframe>
+//         </div>
+//     )
+// }
 
 
 
