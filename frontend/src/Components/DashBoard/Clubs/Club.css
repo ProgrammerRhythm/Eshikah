@@ -42,22 +42,39 @@
     height: 120px;
     width: 180px;
 } */
-.VdoBox{
-    /* height: 110px; */
-    margin-bottom: 50px;
-    margin-top: 10px;
-    text-align: left;
+.AlignIt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.ClubBox{
+    height: 80vh;
 }
 .YtVdo{
     border-radius: 25px;
 }
+.iframe{
+    border: 0;
+    height: 500px;
+    width: 100%;
+    /* margin: 5px; */
+    border-radius: 25px;
+}
 .VdoSec{
-    border: 1px solid rgba(128, 128, 128, 0.256);
-    /* height: 36.5vh; */
-    /* overflow: scroll; */
-    /* overflow-x: hidden; */
-    border-radius: 17px;
-    box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
+    align-self: stretch;
+    max-height: 500px;
+    max-width: 350px;
+    /* padding: 30px 0; */
+    background: #fff;
+    box-shadow: 0 10px 50px rgb(25 37 52 / 14%), 0 2px 5px rgb(25 37 52 / 3%);
+    border-radius: 13px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid lightgray;
+}
+.VdoH{
+    cursor: pointer;    color: #646464;
 }
 @media screen and (max-width: 1199px) {
     .VdoBox{

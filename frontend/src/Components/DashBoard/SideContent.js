@@ -48,43 +48,43 @@ function SideBar() {
     return (
         <div class="SideBarLinks_sidebar-links__C5-7U mt-4 bg-white border px-2 py-4">
             <ul class="m-0 p-0">
+                    <Link to='/dashboard/info'>
                 <li class="SideBarLink_sidebar-link__bOMai d-flex justify-content-between align-items-center px-4">
                     <UserEdit></UserEdit>
-                    <Link to='/dashboard/info'>
                         <button className={`${active} NonBtn`} onClick={handleClick} >Edit Profile</button>
-                    </Link>
                     <ArrowRight2></ArrowRight2>
                 </li>
+                    </Link>
                 <div class="SideBarLink_sidebar-link-border__8c6AH">
                     <div></div>
                 </div>
+                    <Link to='/dashboard/profile'>
                 <li class="SideBarLink_sidebar-link__bOMai d-flex justify-content-between align-items-center px-4">
                     <PasswordCheck></PasswordCheck>
-                    <Link to='/dashboard/profile'>
                         <button className={`${active} NonBtn`} onClick={handleClick} >Change Password</button>
-                    </Link>
                     <ArrowRight2></ArrowRight2>
                 </li>
+                    </Link>
                 <div class="SideBarLink_sidebar-link-border__8c6AH">
                     <div></div>
                 </div>
+                    <Link to='/dashboard/clubs'>
                 <li class="SideBarLink_sidebar-link__bOMai d-flex justify-content-between align-items-center px-4">
                     <Chart21></Chart21>
-                    <Link to='/dashboard/clubs'>
                         <button className={`${active} NonBtn`} onClick={handleClick} >Clubs</button>
-                    </Link>
                     <ArrowRight2></ArrowRight2>
                 </li>
+                    </Link>
                 <div class="SideBarLink_sidebar-link-border__8c6AH">
                     <div></div>
                 </div>
+                   <Link to='/dashboard/activity'>
                 <li class="SideBarLink_sidebar-link__bOMai d-flex justify-content-between align-items-center px-4">
                     <Activity></Activity>
-                   <Link to='/dashboard/activity'>
                         <button className={`${active} NonBtn`} onClick={handleClick} >Activity</button>
-                    </Link>
                     <ArrowRight2></ArrowRight2>
                 </li>
+                    </Link>
                 <div class="SideBarLink_sidebar-link-border__8c6AH">
                     <div></div>
                 </div>

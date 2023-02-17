@@ -21,35 +21,41 @@ const ClubVdo = () => {
         if(vdo) {
             fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLHiZ4m8vCp9PHnOIT7gd30PCBoYCpGoQM&key=AIzaSyDFgTe6q3q12csOwp9SbGAyh810yagUNMU`)
             .then(res => res.json())
-            .then(data => setVdo(data.items))
+            .then(data => {setVdo(data.items)
+                setVideo()
+            })
             
         }
     },[id])
     // AIzaSyDFgTe6q3q12csOwp9SbGAyh810yagUNMU
     // https://www.googleapis.com/youtube/v3/playlistItems
-    // const [videoLink,setVideoLink] = useState({});
-    // var VideoOn = (props) => {
-    //     const videoLink = props.link;
-    //    return(
-    //         setVideoLink(videoLink)
-    //    )
-    // }
+    const [video,setVideo] = useState()
+    const GetI = (data) => {
+        return (
+            <div>
+                {
+                 setVideo(data)
+                }
+            </div>
+        )
+    }
     return (
         <div>
             {club ? (
-              <div className='container'>
+              <div className='container ClubBox'>
                  <ArrowSquareLeft size="32" color="black"/>
-                       <div className="BgColor ">
+                       <div className="BgColor  AlignIt">
                            <ClubSec id={club.id} name={club.name} img={club.img}></ClubSec>
                            {
                             vdo ? (
-                                <div className="VdoSec container" >
+                                <div className=" container" >
                                    <div className="row">
                                     <div className="col-8">
-                                    {/* {videoLink.map(data => <ShowI name={data.snippet.title} link={data.snippet.resourceId.videoId} description={data.snippet.description}></ShowI>)} */}
+                                        <ShowI></ShowI>
                                     </div>
-                                    <div className="col-4">
-                                    {vdo.map(data => <ShowVideos name={data.snippet.title} link={data.snippet.resourceId.videoId} description={data.snippet.description}></ShowVideos>)}
+                                    <div className="col-4 VdoSec">
+                                        <span><h4 style={{margin:'25px 0px'}}>{club.name}</h4></span>
+                                    {vdo.map(data => <ShowVideos  id={club.id} Cname={club.name} Cimg={club.img} name={data.snippet.title} link={data.snippet.resourceId.videoId} description={data.snippet.description}></ShowVideos>)}
                                     </div>
                                    </div>
                                 </div>
@@ -61,17 +67,32 @@ const ClubVdo = () => {
         <NotFound />
       )}
         </div>
+        
     );
+    function ShowVideos(props) {
+        let {name,link} = props;
+
+        return(
+            <div className="row">
+                    <div>
+                        <p onClick={() => GetI(link)} className='VdoH'>{name}</p>
+                    </div>
+            </div>
+        )
+    }
+  
+    
+    function ShowI(){
+        return(
+            <div>
+            <iframe className='iframe' frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title='Eshikah Videos' width="450" height="230" src={`https://www.youtube.com/embed/${video}`} id="widget2" data-gtm-yt-inspected-10="true" data-gtm-yt-inspected-1195660_202="true"></iframe>
+
+            </div>
+        )
+    }
 };
 
-// function ShowI(props){
-//     let {link} = props;
-//     return (
-//         <div>
-//             <iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title='Eshikah Videos' width="450" height="230" src={`https://www.youtube.com/embed/${link}`} id="widget2" data-gtm-yt-inspected-10="true" data-gtm-yt-inspected-1195660_202="true"></iframe>
-//         </div>
-//     )
-// }
+
 
 
 
@@ -99,17 +120,6 @@ function ClubSec(props){
         </div>
     )
 }
-function ShowVideos(props) {
-    let {name,description} = props;
-    description = description.slice(0, 90)
-    return(
-        <div className="row VdoBox">
-                <div>
-                    <h5 style={{margin:'5px'}}>{name}</h5>
-                    <p style={{color:"#676767"}}>{`${description}......`}</p>
-                </div>
-        </div>
-    )
-}
+
 
 export default ClubVdo;

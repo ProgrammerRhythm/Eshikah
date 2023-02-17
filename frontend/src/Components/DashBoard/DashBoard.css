@@ -4,6 +4,9 @@
     width: 100%;
     overflow: scroll;
 }
+a{
+    color: black
+}
 .BgColor{
     background-color: #fff!important;
 }
