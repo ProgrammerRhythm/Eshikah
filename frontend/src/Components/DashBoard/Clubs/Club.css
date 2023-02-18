@@ -48,9 +48,7 @@
     align-items: center;
     flex-direction: column;
 }
-.ClubBox{
-    height: 80vh;
-}
+
 .YtVdo{
     border-radius: 25px;
 }
@@ -58,7 +56,6 @@
     border: 0;
     height: 500px;
     width: 100%;
-    /* margin: 5px; */
     border-radius: 25px;
 }
 .VdoSec{
@@ -84,6 +81,12 @@
     }
   }  
 @media screen and (max-width: 991px) {
+    .ClubBox{
+        /* height: 80vh; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;    
+    }
     .LiveClass{
         text-align: center;
         margin: 0;

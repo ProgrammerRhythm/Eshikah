@@ -27,6 +27,27 @@ const ClubVdo = () => {
             
         }
     },[id])
+    function apiCall() {
+        fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLHiZ4m8vCp9PHnOIT7gd30PCBoYCpGoQM&key=AIzaSyDFgTe6q3q12csOwp9SbGAyh810yagUNMU`)
+        .then(response => {
+            return response.json();
+        })
+        .then(function(response) {
+            if(response.error){
+              console.log(response.error)
+            } else {
+              responseHandler(response)
+            }
+      
+        });
+      }
+
+    function responseHandler(response){
+        if(response.nextPageToken)
+          apiCall(response.nextPageToken);
+      
+        console.log(response)
+      }
     // AIzaSyDFgTe6q3q12csOwp9SbGAyh810yagUNMU
     // https://www.googleapis.com/youtube/v3/playlistItems
     const [video,setVideo] = useState()
@@ -43,17 +64,17 @@ const ClubVdo = () => {
         <div>
             {club ? (
               <div className='container ClubBox'>
-                 <ArrowSquareLeft size="32" color="black"/>
+                <Link to='/dashboard/clubs'> <ArrowSquareLeft size="32" color="black" style={{margin:'10px'}}/></Link>
                        <div className="BgColor  AlignIt">
                            <ClubSec id={club.id} name={club.name} img={club.img}></ClubSec>
                            {
                             vdo ? (
                                 <div className=" container" >
                                    <div className="row">
-                                    <div className="col-8">
+                                    <div className="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8">
                                         <ShowI></ShowI>
                                     </div>
-                                    <div className="col-4 VdoSec">
+                                    <div className="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 VdoSec">
                                         <span><h4 style={{margin:'25px 0px'}}>{club.name}</h4></span>
                                     {vdo.map(data => <ShowVideos  id={club.id} Cname={club.name} Cimg={club.img} name={data.snippet.title} link={data.snippet.resourceId.videoId} description={data.snippet.description}></ShowVideos>)}
                                     </div>

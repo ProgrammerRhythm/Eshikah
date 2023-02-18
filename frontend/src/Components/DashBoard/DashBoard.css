@@ -157,3 +157,13 @@ img, svg {
     background-color: #fff;
    }
   }  
+
+  @media screen and (max-width: 1199px) {
+    .iframe{
+        border: 0;
+        margin-top: 12px;
+        height: 400px;
+        width: 100%;
+        border-radius: 25px;
+    }
+  }  
