@@ -121,7 +121,7 @@ const ClubVdo = () => {
 
 
 function ClubSec(props) {
-  const { name, img, id } = props;
+  const { name, id } = props;
   const location = useLocation();
   const [active, setActive] = useState('');
 
