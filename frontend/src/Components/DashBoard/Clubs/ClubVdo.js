@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
-// import SideContent from '../SideContent';
 import ClubData from '../../Data/ClubData';
 import Video from '../../Data/VdoData';
-import axios from "axios";
-// import 'react-youtube-playlist/dist/styles'
+// import axios from "axios";
 import NotFound from '../../NotFound/NotFound';
 import './Club.css'
 import { ArrowSquareLeft } from 'iconsax-react';
-// import axios from 'axios';
-// import YouTube from 'react-youtube';
+import axios from 'axios';
 const ClubVdo = () => {
   const { id } = useParams();
   const [club, setClub] = useState(null);
