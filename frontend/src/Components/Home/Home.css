@@ -182,7 +182,9 @@ li{
     -webkit-align-items: center;
     align-items: center;
   }
-  
+  .ytp-chrome-top,.ytp-title-enable-channel-logo,.ytp-title-channel,.ytp-title,.ytp-overflow-icon{
+    display: none!important;
+  }
   .swiper-slide img {
     display: block;
     width: 100%;

@@ -1,12 +1,7 @@
 *{
     margin: 0;
 }
-.ClubSHead{
-    padding: 10px 20px;
-}
-.ClubSHead img{
-    margin-bottom: 10px;
-}
+
 .ClubDeNav ul{
     display: flex;
     flex-direction: row;
@@ -31,6 +26,9 @@
 .ClubSHead{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 445px;
 }
 .LiveImg img{
     display: none;
@@ -62,13 +60,13 @@
 }
 .iframe{
     border: 0;
-    height: 500px;
+    height: 440px;
     width: 100%;
     border-radius: 25px;
 }
 .VdoSec{
     align-self: stretch;
-    max-height: 500px;
+    max-height: 550px;
     max-width: 350px;
     background: #fff;
     box-shadow: 0 10px 50px rgb(25 37 52 / 14%), 0 2px 5px rgb(25 37 52 / 3%);
@@ -86,6 +84,13 @@
         margin-bottom: 90px;
         margin-top: 10px;
     }
+    .iframe{
+        border: 0;
+        margin-top: 12px;
+        height: 400px;
+        width: 100%;
+        border-radius: 25px;
+    }
   }  
 @media screen and (max-width: 991px) {
     .ClubBox{
@@ -97,6 +102,12 @@
     .LiveClass{
         text-align: center;
         margin: 0;
+    }
+    .iframe{
+        border: 0;
+        height: 350px;
+        width: 100%;
+        border-radius: 25px;
     }
     .ClubDeNav ul li{
         margin-right: 0px;
@@ -148,6 +159,12 @@
   }  
 
   @media screen and (max-width: 767px) {
+    .iframe{
+        border: 0;
+        height: 350px;
+        width: 100%;
+        border-radius: 25px;
+    }
     .VdoBox{
         height: 155px;
         margin-bottom: 135px;
@@ -169,5 +186,13 @@
         box-shadow: 0 4px 20px rgba(0,0,0,.1)!important;
         margin-bottom: 50px;
         margin-top: 10px;
+    }
+  }  
+  @media screen and (max-width: 554px) {
+    .iframe{
+        border: 0;
+        height: 240px;
+        width: 100%;
+        border-radius: 25px;
     }
   }  
