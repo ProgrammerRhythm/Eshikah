@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import ClubBlogD from '../../Data/Blog/ClubBlogD';
 import ClubData from '../../Data/ClubData';
 import NotFound from '../../NotFound/NotFound';
@@ -53,30 +53,62 @@ const ClubBlog = () => {
     );
 };
 
-function ClubSec(props){
-    const {name,img,id} = props;
-    return(
-        <div className="ClubBody">
-            <div className="ClubSHead">
-                <img src={img} alt="" />
-                <h2>{name}</h2>
-            </div>
-            <div className="ClubDeNav mt-1 bg-white px-2">
-                <ul>
-                    <li>
-                        <Link style={{color:'black'}}  to={`/dashboard/club/${id}/videos`}>Videos</Link>
-                    </li>
-                    <li>
-                        <Link style={{color:'black'}} to={`/dashboard/club/${id}/blogs`}>Blog</Link>
-                    </li>
-                    <li>
-                    <Link style={{color:'black'}}  to={`/dashboard/club/${id}/liveclass`}>Live Classes</Link>
-                    </li>
-                </ul>
-            </div>
+function ClubSec(props) {
+    const { name, img, id } = props;
+    const location = useLocation();
+    const [active, setActive] = useState('');
+  
+    useEffect(() => {
+      // Set active link based on the current location path
+      const path = location.pathname;
+      if (path.includes('/videos')) {
+        setActive('videos');
+      } else if (path.includes('/blogs')) {
+        setActive('blogs');
+      } else if (path.includes('/liveclass')) {
+        setActive('liveclass');
+      }
+    }, [location]);
+    return (
+      <div className="ClubBody">
+        <div className="ClubSHead">
+          <img src={img} alt="" />
+          <h2>{name}</h2>
         </div>
+        <div className="ClubDeNav mt-1 bg-white px-2">
+          <ul>
+            <li>
+              <Link
+                style={{ color: active === 'videos' ? '#7F56D9' : 'black', fontWeight: active === 'videos' ? 'bold' : 'normal' }}
+                to={`/dashboard/club/${id}/videos`}
+                onClick={() => setActive('videos')}
+              >
+                Videos
+              </Link>
+            </li>
+            <li>
+              <Link
+                style={{ color: active === 'blogs' ? '#7F56D9' : 'black', fontWeight: active === 'blogs' ? 'bold' : 'normal' }}
+                to={`/dashboard/club/${id}/blogs`}
+                onClick={() => setActive('blogs')}
+              >
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                style={{ color: active === 'liveclass' ? '#7F56D9' : 'black', fontWeight: active === 'liveclass' ? 'bold' : 'normal' }}
+                to={`/dashboard/club/${id}/liveclass`}
+                onClick={() => setActive('liveclass')}
+              >
+                Live Classes
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
     )
-}
+  }
 
 
 
