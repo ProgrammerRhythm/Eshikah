@@ -6,7 +6,6 @@ import Video from '../../Data/VdoData';
 import NotFound from '../../NotFound/NotFound';
 import './Club.css'
 import { ArrowSquareLeft } from 'iconsax-react';
-import axios from 'axios';
 const ClubVdo = () => {
   const { id } = useParams();
   const [club, setClub] = useState(null);
@@ -24,12 +23,13 @@ const ClubVdo = () => {
     let vdo = Video.find((data) => data.id === id);
     const PlaylistId = vdo.PlaylistId;
     if (vdo) {
-      axios
-        .get(
+      fetch(
           `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${PlaylistId}&key=AIzaSyDFgTe6q3q12csOwp9SbGAyh810yagUNMU`
         )
-        .then((response) => {
-          const videoIds = response.data.items.map(
+        .then(res => res.json())
+        .then((redData) => {
+          console.log(redData);
+          const videoIds = redData.items.map(
             (item) => item
           );
           setVdo(videoIds);
