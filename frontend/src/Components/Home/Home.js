@@ -243,7 +243,7 @@ function PClass() {
         }
       </div>
       <div style={{ textAlign: 'center' }} className="upBtns">
-        <button style={{ padding: '10px 20px' }} className='button'>Explore Class</button>
+        <Link to='/dashboard'><button style={{ padding: '10px 20px' }} className='button'>Explore Class</button></Link>
       </div>
     </div>
   )
