@@ -149,11 +149,12 @@ function Header() {
             <h1 className='title'>Up Your <span style={{ color: '#7F56D9', }}>Skills</span> <br /> To <span style={{ color: '#7F56D9', }}>Advance</span> Your <br /> <span style={{ color: '#7F56D9', }}>Career</span> Path</h1>
             <p className='smt'>Provides you with the latest online learning system and material that help your knowledge growing.</p>
             <div className="upBtn">
-              <button class="cssbuttons-io-button"> Get started
+             <Link to='/dashboard'>
+             <button class="cssbuttons-io-button"> Get started
                 <div class="icon">
                   <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
                 </div>
-              </button>
+              </button></Link>
               <button className='Sv' style={{ padding: '10px 20px', margin: '10px', BackgroundColor: '#F4EBFF', color: '#7F56D9', borderRadius: '7px', border: '2px solid #F4EBFF', transition: 'ease-out 0.5s' }}> See Videos</button>
             </div>
             <div className="row CoverUp HideIt">

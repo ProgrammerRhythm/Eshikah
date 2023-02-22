@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Auth from './Components/Auth/Auth';
 import Login from './Components/Auth/Login/Login';
 import SignUp from './Components/Auth/SignUp/SignUp';
@@ -19,7 +19,17 @@ import ClubBlog from './Components/DashBoard/Clubs/ClubBlog';
 import ClubLiveC from './Components/DashBoard/Clubs/ClubLiveC';
 export const UserContext = createContext();
 
+function isAuthenticated() {
+  // Replace this with your own authentication logic
+  const jsonUser = localStorage.getItem('user');
+  const user = JSON.parse(jsonUser);
+  return Boolean(user?.token);
+}
 
+// Define a PrivateRoute component to wrap around protected routes
+function PrivateRoute2({ children }) {
+  return isAuthenticated() ? children : <Navigate to="/home" />;
+}
 
 
 function App() {
@@ -27,6 +37,15 @@ function App() {
   return (
         <UserContext.Provider value={[logedInUser,setLoggedInUser]}>
           <Routes>
+                  {/* Show the Home component if the user is not authenticated */}
+      <Route path="/" element={isAuthenticated() ? <Navigate to="/dashboard" /> : <Home />} />
+
+{/* Show the Login component if the user is not authenticated */}
+<Route path="/login" element={!isAuthenticated() ? <Login /> : <Navigate to="/dashboard" />} />
+
+{/* Show the Dashboard component if the user is authenticated */}
+<Route path="/dashboard" element={<PrivateRoute2><Info /></PrivateRoute2>} />
+
           <Route path="/" element={<Home/>} />
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
