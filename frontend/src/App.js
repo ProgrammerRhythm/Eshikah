@@ -28,7 +28,7 @@ function isAuthenticated() {
 
 // Define a PrivateRoute component to wrap around protected routes
 function PrivateRoute2({ children }) {
-  return isAuthenticated() ? children : <Navigate to="/home" />;
+  return isAuthenticated() ? children : <Navigate to="/login" />;
 }
 
 
