@@ -55,7 +55,7 @@ const ClubVdo = () => {
     <div>
       {club ? (
         <div className='container ClubBox'>
-          <Link to='/dashboard/clubs'> <ArrowSquareLeft size="32" color="black" style={{ margin: '10px' }} /></Link>
+          <Link to='/dashboard/clubs'> <ArrowSquareLeft size="42" color="black" style={{ margin: '10px' }} /></Link>
           <div className="BgColor  AlignIt">
             <ClubSec id={club.id} name={club.name} img={club.img}></ClubSec>
             {

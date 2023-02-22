@@ -17,15 +17,12 @@ function Navbar(){
                 <Link className="nav-link MarginT text-dark active" aria-current="page" to="/program">Program</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link MarginT text-dark" to='/universities'>Universities</Link>
-              </li>
-              <li className="nav-item">
                 <Link className="nav-link MarginT text-dark" to='/blog'>Blog</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link MarginT text-dark" to="/Clubs">Clubs</Link>
               </li>
-              <li className="nav-item upBtn">
+              <li className="nav-item upBtns">
               <Link to="/signin"><button className='button'>Login/SignUp</button></Link>
               </li>
             </ul>

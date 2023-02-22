@@ -100,26 +100,30 @@ function LoginComponent() {
           setUser(newUserInfo);
       }
     }
-    const OnSubmit = (e) => {
-      const email = user.email;
-      if (email.length > 0) {
-        var totalValue = {
-          "email": email
-      }
-      const massage = 'Wait Please...'
-        toast.success(massage, {
-          position: "top-right",
-          autoClose: 15000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          });
+    const [isToastDisplayed, setIsToastDisplayed] = useState(false);
+
+  const OnSubmit = (e) => {
+    const email = user.email;
+    if (email.length > 0 && !isToastDisplayed) {
+      const totalValue = { email };
+      const massage = 'Wait Please...';
+      toast.success(massage, {
+        position: "top-right",
+        autoClose: 15000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setIsToastDisplayed(true);
+      setTimeout(() => {
+        setIsToastDisplayed(false);
+      }, 15000);
       SendData(totalValue);
-      }
-      }
+    }
+  }
       function SendData(value) {
         fetch('https://eshika.onrender.com/api/auth/login',{
         method: 'POST',

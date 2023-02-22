@@ -1,5 +1,7 @@
 import { createContext, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import i18next from 'i18next';
+import bnTranslation from './locales/bn.json';
 import Auth from './Components/Auth/Auth';
 import Login from './Components/Auth/Login/Login';
 import SignUp from './Components/Auth/SignUp/SignUp';
@@ -17,9 +19,20 @@ import PrivateRoute from './Components/Program/PrivateRoute';
 import Program from './Components/Program/Program';
 import ClubBlog from './Components/DashBoard/Clubs/ClubBlog';
 import ClubLiveC from './Components/DashBoard/Clubs/ClubLiveC';
-
+import { initReactI18next } from 'react-i18next';
 export const UserContext = createContext();
 
+
+
+
+
+i18next.use(initReactI18next).init({
+  resources: {
+    bn: { translation: bnTranslation },
+  },
+  lng: 'bn',
+  fallbackLng: 'bn',
+});
 function App() {
   const [logedInUser,setLoggedInUser] = useState({})
   return (

@@ -89,81 +89,93 @@ function SignUpComponent(){
     // const [token,setToken] = useState({
     //   token: ''
     // })
-    const HandleChange = (e) => {
-      let fildValid=true;
-      if(e.target.name === 'firstName') {
-          fildValid =  e.target.value;
+    const handleChange = (e) => {
+      let fieldValid = true;
+    
+      if (e.target.name === 'firstName' || e.target.name === 'lastName' || e.target.name === 'email') {
+        fieldValid = e.target.value;
       }
-      if(e.target.name === 'lastName') {
-        fildValid =  e.target.value;
+    
+      if (e.target.name === 'password') {
+        fieldValid = e.target.value;
       }
-      if(e.target.name === 'password') {
-        fildValid =  e.target.value ;
-      }
-      if(e.target.name === 'institution') {
+    
+      if (e.target.name === 'institution') {
         const institution = e.target.value.length > 0 || '';
-        fildValid = institution;
+        fieldValid = institution;
       }
-      if(e.target.name === 'email') {
-        fildValid =  e.target.value;
+    
+      if (fieldValid) {
+        const newUserInfo = { ...user };
+        newUserInfo[e.target.name] = e.target.value;
+        setNewUser(newUserInfo);
+        console.log(newUserInfo);
       }
-      if (fildValid) {
-          const newUserInfo = {...user};
-          newUserInfo[e.target.name]=e.target.value;
-          setNewUser(newUserInfo);
-          console.log(newUserInfo);
-      }
-    }
-    const OnSubmit = () => {
+    };
+    
+    const onSubmit = () => {
       const queryParams = new URLSearchParams(window.location.search);
       const token = queryParams.get('token');
       console.log(token);
-        const firstName = user.firstName;
-        const lastName = user.lastName;
-        const institution = user.institution.length;
-        const password = user.password;
-        const email = user.email;
-        const date = new Date().getTime();
-        const totalValue = {
-            "firstName": firstName,
-            'lastName': lastName,
-            'dateOfBirth': date,
-            'institution': institution,
-            'password': password,
-            'signupToken': token,
-            'email': email,
-        }
-        console.log(totalValue);
-        console.log(JSON.stringify(totalValue));
-        SendData(totalValue);
-        }
-        const history = useNavigate();
-        function SendData(value) {
-          fetch('https://eshika.onrender.com/api/auth/register',{
-          method: 'POST',
-          body: JSON.stringify(value),
-          headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+    
+      const { firstName, lastName, institution, password, email } = user;
+      const dateOfBirth = new Date().getTime();
+    
+      const totalValue = {
+        firstName,
+        lastName,
+        dateOfBirth,
+        institution,
+        password,
+        signupToken: token,
+        email,
+      };
+    
+      console.log(totalValue);
+      console.log(JSON.stringify(totalValue));
+    
+      sendData(totalValue);
+    };
+    
+    const history = useNavigate();
+    
+    function sendData(value) {
+      fetch('https://eshika.onrender.com/api/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(value),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
         },
-        })
-        .then(res => res.json())
-        .then(result => {
+      })
+        .then((res) => res.json())
+        .then((result) => {
           const message = result.message;
-          const messege = {message: message}
-          console.log(messege,result);
+          const messege = { message: message };
+          console.log(messege, result);
+    
           const token = result.token;
-          const UserData = jwt_decode(token);
-          console.log(UserData);
-          const {email,lastName,firstName,institution,password} = UserData;
-          const signedInUser = {name:`${firstName} ${lastName}`, email: email,institution:institution,password:password,token:token}
+          const userData = jwt_decode(token);
+          console.log(userData);
+    
+          const { email, lastName, firstName, institution, password } = userData;
+          const signedInUser = {
+            name: `${firstName} ${lastName}`,
+            email: email,
+            institution: institution,
+            password: password,
+            token: token,
+          };
+    
           console.log(signedInUser);
           setLoggedInUser(signedInUser);
+    
           const makeJson = JSON.stringify(signedInUser);
-          localStorage.setItem('user',makeJson);
-          history('/dashboard')
+          localStorage.setItem('user', makeJson);
+          history('/dashboard');
         })
-        .catch(err => console.log(err))
-        }
+        .catch((err) => console.log(err));
+    }
+    
         
     return (
         <div className="container LoginComponent">
@@ -171,12 +183,12 @@ function SignUpComponent(){
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 SBox" data-aos="fade-right">
                     <h1 className='Wlc'>Welcome to the new world of learning</h1>
                       {/* <h5 style={{fontSize:'15px',color:'red'}}>{token.token}</h5> */}
-                        <input onChange={HandleChange} className='inputF' name='firstName' type="text"  placeholder="Enter your First Name" required title='Enter your first Name' /> <br />
-                        <input  onChange={HandleChange} placeholder='Enter your Last Name' name='lastName' className='inputF' type="text"  required title='Enter your last Name' />
+                        <input onChange={handleChange} className='inputF' name='firstName' type="text"  placeholder="Enter your First Name" required title='Enter your first Name' /> <br />
+                        <input  onChange={handleChange} placeholder='Enter your Last Name' name='lastName' className='inputF' type="text"  required title='Enter your last Name' />
                         <br />
-                        <input  onChange={HandleChange} placeholder='Enter Password' className='inputF' required type="password" name="password" id="" /> <br />
-                        <input onChange={HandleChange} type="text" placeholder="Enter your Institution Name (Optional)"className='inputF' name='institution' /> <br />
-                        <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => OnSubmit()} id="click" className='buttons'>Sign Up</button>
+                        <input  onChange={handleChange} placeholder='Enter Password' className='inputF' required type="password" name="password" id="" /> <br />
+                        <input onChange={handleChange} type="text" placeholder="Enter your Institution Name (Optional)"className='inputF' name='institution' /> <br />
+                        <button style={{ padding: '10px 30px', borderRadius: '30px' }} onClick={() => onSubmit()} id="click" className='buttons'>Sign Up</button>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 ImgBoxLogin "data-aos="fade-left">
                     {/* <h1 className='Wlc' style={{margin:'5px 15px'}}>Participate in daily live classes and keep yourself engaged</h1> */}
