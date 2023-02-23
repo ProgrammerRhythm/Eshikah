@@ -1,8 +1,9 @@
 .Panel_panel-wrapper{
-    background-color: #fff;
-    min-height: 100vh;
-    width: 100%;
-    overflow: scroll;
+    /* background-color: #fff; */
+    height: 100vh;
+    /* overflow: scroll; */
+    overflow: hidden;
+    width: 100vw;
 }
 a{
     color: black
@@ -144,7 +145,7 @@ img, svg {
     }
     .Panel_panel-wrapper{
         background-color: #fff;
-        min-height: 100vh;
+        height: auto;
         width: 100%;
     }
    .Panel_panel-column__Ywh59{
