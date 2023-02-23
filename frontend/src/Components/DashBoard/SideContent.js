@@ -41,7 +41,7 @@ function SideBar() {
     let User = true;
     const handleLogout = () => {
         if(User) {
-         history('/')
+         history('/home')
          localStorage.removeItem('user')
         }
     }
