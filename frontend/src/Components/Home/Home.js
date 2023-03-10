@@ -21,6 +21,9 @@ import HBlogD from '../Data/HBlogD';
 
 const Home = () => {
   useEffect(() => {
+    fetch('https://eshika.onrender.com/health')
+    .then(res => res.json())
+    .then(data => console.log(data.message))
     AOS.init({
       offset: 100,
       duration: 1000,
