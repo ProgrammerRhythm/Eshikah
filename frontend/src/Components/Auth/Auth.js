@@ -106,6 +106,7 @@ function LoginComponent() {
     const email = user.email;
     if (email.length > 0 && !isToastDisplayed) {
       const totalValue = { email };
+      
       const massage = 'Wait Please...';
       toast.success(massage, {
         position: "top-right",

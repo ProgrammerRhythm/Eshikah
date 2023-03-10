@@ -12,6 +12,10 @@
     color: white;
     box-shadow: inset 0 -100px 0 0 #7F56D9;
 }
+.nav-link.active {
+    font-weight: bold;
+  }
+  
 .MarginT{
     margin-top: 5px;
 }
