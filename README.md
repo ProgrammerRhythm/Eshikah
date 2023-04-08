@@ -5,9 +5,13 @@ Eshikha is a Learning platfrom which allows students to learn at their own pace,
 
 ## Features
 *A wide range of courses in various fields, including technology, business, and design
+
 *Interactive tutorials and quizzes to help you test your knowledge and apply what you've learned
+
 *A personalized dashboard to track your progress, set learning goals, and access your course materials
+
 *A community forum to connect with other learners and share resources
+
 *Expert instructors to provide guidance and support throughout your learning journey
 ## Getting Started
 1. Sign up for an account on our website
