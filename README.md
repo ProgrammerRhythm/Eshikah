@@ -25,7 +25,8 @@ See `contributing.md` for ways to get started.
 This project is licensed under the MIT License.
 
 ## Support
-If you have any questions or issues, please contact us at info@eshikha.tech
+If you have any questions or issues, please contact us at learn.eshikha@gmail.com
+
 
 Start boosting your skills today with Eshikha!
 
